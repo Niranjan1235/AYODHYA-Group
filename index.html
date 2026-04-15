@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ayodhya Group – Bengaluru</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9A84C;--gold-light:#E8C97A;--cream:#FAF7F2;--cream-2:#F3EDE3;--dark:#0E0D0B;--dark-2:#1A1814;--dark-3:#252220;--muted:#8A8580;--white:#fff}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;width:100%;position:relative}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:80px;transition:all 0.4s}
+nav.scrolled{background:rgba(14,13,11,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,0.18);height:66px}
+.nav-brand{display:flex;flex-direction:column;gap:1px;text-decoration:none}.logo-line{display:flex;align-items:center;gap:10px}
+.n-emblem{width:32px;height:32px;flex-shrink:0;border:1.5px solid var(--gold);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;transition:transform 0.4s}
+nav.scrolled .n-emblem{transform:rotate(45deg) scale(0.9)}.n-emblem::after{content:'';width:12px;height:12px;background:var(--gold)}
+.nav-brand h1{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:0.18em;text-transform:uppercase}
+.n-sub{font-size:0.54rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;padding-left:42px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:0.7rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links .n-cta{background:var(--gold);color:var(--dark)!important;padding:8px 20px;font-weight:600}.nav-links .n-cta::after{display:none}.nav-links .n-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}.hamburger span{display:block;width:24px;height:1.5px;background:var(--white)}
+.mob-menu{display:none;position:fixed;top:80px;left:0;right:0;background:rgba(14,13,11,0.98);padding:24px 5%;z-index:999;border-bottom:1px solid rgba(201,168,76,0.15)}
+.mob-menu.open{display:block}.mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-menu a{text-decoration:none;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+
+/* HERO */
+#hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden;background:#080706}
+.h-bg{position:absolute;inset:0;background:radial-gradient(ellipse 130% 90% at 65% 50%,#1c1509 0%,#080706 60%)}
+.h-lines{position:absolute;inset:0;overflow:hidden}
+.h-lines::before{content:'';position:absolute;inset:-50%;background:repeating-linear-gradient(-52deg,transparent 0,transparent 44px,rgba(201,168,76,0.025) 44px,rgba(201,168,76,0.025) 45px);animation:ldrift 24s linear infinite}
+@keyframes ldrift{from{transform:translateX(0)}to{transform:translateX(90px)}}
+.h-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,0.06);top:50%;left:58%;transform:translate(-50%,-50%);animation:rbr 7s ease-in-out infinite}
+.h-ring1{width:820px;height:820px;animation-delay:0s}.h-ring2{width:580px;height:580px;animation-delay:.5s;border-color:rgba(201,168,76,0.04)}
+.h-ring3{width:340px;height:340px;animation-delay:1s;border-color:rgba(201,168,76,0.08)}
+@keyframes rbr{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.03)}}
+.h-rpanel{position:absolute;right:0;top:0;bottom:0;width:44%;clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background:linear-gradient(140deg,#1e1508 0%,#3a2a0e 35%,#1a1208 70%,#0c0a06 100%)}
+.h-rpanel::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0,transparent 60px,rgba(201,168,76,0.035) 60px,rgba(201,168,76,0.035) 61px),repeating-linear-gradient(90deg,transparent 0,transparent 60px,rgba(201,168,76,0.035) 60px,rgba(201,168,76,0.035) 61px)}
+.h-glow{position:absolute;width:460px;height:460px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 65%);top:50%;left:62%;transform:translate(-50%,-50%);animation:gp 5s ease-in-out infinite}
+@keyframes gp{0%,100%{opacity:.6}50%{opacity:1}}
+.h-year{position:absolute;bottom:30px;right:30px;font-family:'Cormorant Garamond',serif;font-size:10rem;font-weight:700;line-height:1;color:rgba(201,168,76,0.05);user-select:none;pointer-events:none}
+.h-fade{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,transparent,var(--cream));z-index:3}
+.h-content{position:relative;z-index:5;padding:0 5%;max-width:660px}
+.h-eyebrow{display:inline-flex;align-items:center;gap:12px;margin-bottom:30px;opacity:0;animation:sup .8s cubic-bezier(.16,1,.3,1) .1s forwards}
+.h-ey-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:db 2s ease-in-out infinite}
+@keyframes db{0%,100%{opacity:1}50%{opacity:.3}}
+.h-ey-text{font-size:0.58rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.h-ey-line{width:36px;height:1px;background:rgba(201,168,76,0.4)}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6.5vw,5.6rem);font-weight:300;color:var(--white);line-height:1.06;margin-bottom:26px;opacity:0;animation:sup .9s cubic-bezier(.16,1,.3,1) .25s forwards}
+.h-title .accent{display:block;font-style:italic;background:linear-gradient(90deg,var(--gold-light) 0%,var(--gold) 60%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-title .thin{font-weight:200;letter-spacing:.04em}
+.h-desc{font-size:.9rem;color:rgba(255,255,255,0.42);line-height:1.85;max-width:460px;margin-bottom:40px;font-weight:300;opacity:0;animation:sup .9s cubic-bezier(.16,1,.3,1) .4s forwards}
+.h-btns{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:50px;opacity:0;animation:sup .9s cubic-bezier(.16,1,.3,1) .55s forwards}
+.hbp{background:var(--gold);color:var(--dark);font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;padding:15px 34px;font-weight:600;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s}
+.hbp::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .3s}
+.hbp:hover{transform:translateY(-2px)}.hbp:hover::after{transform:translateX(0)}
+.hbo{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;padding:15px 34px;cursor:pointer;transition:all .25s}
+.hbo:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.h-badges{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:sup .9s cubic-bezier(.16,1,.3,1) .7s forwards}
+.h-badge{display:flex;align-items:center;gap:8px;border:1px solid rgba(201,168,76,0.18);padding:8px 15px;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:all .3s}
+.h-badge:hover{border-color:var(--gold);color:var(--gold-light)}.h-badge-d{width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+/* floating info cards on right */
+.h-cards{position:absolute;right:3.5%;top:50%;transform:translateY(-50%);z-index:6;display:flex;flex-direction:column;gap:14px;opacity:0;animation:sleft 1s cubic-bezier(.16,1,.3,1) .65s forwards}
+.h-card{background:rgba(14,13,11,.82);border:1px solid rgba(201,168,76,.22);backdrop-filter:blur(10px);padding:18px 20px;min-width:200px}
+.hc-label{font-size:.52rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.hc-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--white);line-height:1}
+.hc-sub{font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-top:3px}
+.h-scroll{position:absolute;bottom:100px;left:5%;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadein 1s ease 1.2s forwards}
+.h-scroll span{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.h-scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(201,168,76,.55),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes sup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sleft{from{opacity:0;transform:translate(30px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* STATS */
+.stats-strip{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,168,76,.12);border-bottom:1px solid rgba(201,168,76,.12)}
+.stat{padding:34px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.7rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-l{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+/* WHAT WE DO */
+#whatwedo{background:var(--dark-2);padding:90px 5%}
+.wwd-header{text-align:center;max-width:640px;margin:0 auto 60px}
+.sec-label{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sec-label span{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.sec-label::before{content:'';display:block;width:26px;height:1px;background:var(--gold)}
+.sec-label.c{justify-content:center}.sec-label.c::before{display:none}.sec-label.c::after{content:'';display:block;width:26px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:10px}
+.sec-sub{color:var(--muted);font-size:.88rem;font-weight:300;line-height:1.75;margin-bottom:50px}
+.wwd-tabs{display:flex;gap:2px;justify-content:center;margin-bottom:60px}
+.wwd-tab{padding:12px 28px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-family:'Jost',sans-serif;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.45);cursor:pointer;transition:all .3s}
+.wwd-tab:hover,.wwd-tab.active{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.4);color:var(--gold)}
+.wwd-panel{display:none}.wwd-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:0;animation:fadein .4s ease}
+.wwd-visual{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wwd-vis-bg{position:absolute;inset:0;transition:transform .6s}
+.wwd-visual:hover .wwd-vis-bg{transform:scale(1.04)}
+.wwd-vis-bg-1{background:linear-gradient(160deg,#0c1a2e 0%,#1a3a5c 50%,#0e2040 100%)}
+.wwd-vis-bg-2{background:linear-gradient(160deg,#1a1208 0%,#3c2a10 50%,#2a1c08 100%)}
+.wwd-vis-bg-3{background:linear-gradient(160deg,#0c1e10 0%,#1c3a20 50%,#102816 100%)}
+.wwd-vis-bg::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px)}
+.wwd-vis-icon{font-size:5rem;position:relative;z-index:2;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.wwd-vis-num{position:absolute;bottom:24px;right:28px;font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(255,255,255,.04);line-height:1;z-index:1}
+.wwd-vis-tag{position:absolute;top:24px;left:24px;z-index:3;background:var(--gold);color:var(--dark);font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;padding:5px 14px;font-weight:600}
+.wwd-info{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.wwd-cat{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+.wwd-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;color:var(--white);line-height:1.15;margin-bottom:16px}
+.wwd-desc{font-size:.83rem;color:rgba(255,255,255,.42);line-height:1.8;margin-bottom:28px}
+.wwd-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin-bottom:34px}
+.wwd-feat{display:flex;align-items:center;gap:9px;font-size:.74rem;color:rgba(255,255,255,.5)}
+.wwd-feat::before{content:'';width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.wwd-link{display:inline-flex;align-items:center;gap:10px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600;transition:gap .3s}
+.wwd-link:hover{gap:18px}
+.wwd-link svg{width:14px;height:14px;stroke:var(--gold);fill:none}
+
+/* FOUNDERS */
+#founders{background:var(--cream);padding:90px 5%}
+.founders-top{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-bottom:64px;align-items:end}
+.founders-right p{font-size:.88rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:12px}
+.f-divider{display:flex;align-items:center;gap:12px;margin-top:8px}
+.f-divider span{width:44px;height:1px;background:rgba(201,168,76,.4)}
+.f-divider i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block}
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.fc{background:var(--white);border:1px solid #EDE9E1;overflow:visible;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s,border-color .3s}
+.fc:hover{transform:translateY(-6px);box-shadow:0 22px 58px rgba(0,0,0,.1);border-color:rgba(201,168,76,.45)}
+/* Circular portrait top */
+.fc-portrait{padding:40px 30px 0;display:flex;flex-direction:column;align-items:center;background:var(--cream-2);border-bottom:none;position:relative;overflow:visible}
+.fc-portrait::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent 0,transparent 20px,rgba(201,168,76,.04) 20px,rgba(201,168,76,.04) 21px)}
+/* Circle image wrapper */
+.fc-circle-wrap{position:relative;z-index:2;margin-bottom:-44px}
+.fc-circle{
+  width:160px;height:160px;border-radius:50%;
+  border:4px solid var(--white);
+  outline:2px solid var(--gold);
+  outline-offset:5px;
+  overflow:hidden;
+  background:linear-gradient(160deg,#1e1710,#3a2c14);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 36px rgba(0,0,0,.18);
+  position:relative;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),outline-color .3s,box-shadow .4s;
+}
+.fc:hover .fc-circle{transform:scale(1.05);outline-color:var(--gold-light);box-shadow:0 16px 48px rgba(201,168,76,.25)}
+.fc-circle img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+/* Animated gold ring */
+.fc-circle::after{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:1.5px solid rgba(201,168,76,.0);
+  transition:border-color .4s,transform .4s;
+  transform:scale(0.9);
+}
+.fc:hover .fc-circle::after{border-color:rgba(201,168,76,.35);transform:scale(1)}
+/* Body */
+.fc-body{padding:54px 30px 32px;position:relative;text-align:center}
+.fc-role{font-size:.54rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.fc-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;line-height:1.1;margin-bottom:14px}
+.fc-name-div{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
+.fc-name-div span{width:28px;height:1px;background:rgba(201,168,76,.35)}
+.fc-name-div i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block}
+.fc-bio{font-size:.81rem;color:var(--muted);line-height:1.75;margin-bottom:20px;text-align:left}
+.fc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;justify-content:center}
+.fc-tag{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 11px;border:1px solid #DDD8CE;color:var(--muted)}
+.fc-links{display:flex;gap:9px;justify-content:center}
+.fc-link{width:34px;height:34px;border:1px solid #DDD8CE;display:flex;align-items:center;justify-content:center;font-size:.8rem;text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s}
+.fc-link:hover{border-color:var(--gold);background:rgba(201,168,76,.08)}
+
+/* REVIEWS */
+#reviews{background:var(--dark-3);padding:90px 5%}
+.rev-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:50px}
+.rev-score{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);padding:18px 24px}
+.rs-num{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:300;color:var(--gold);line-height:1}
+.rs-stars{display:flex;gap:3px;margin-bottom:4px}.rs-star{color:var(--gold);font-size:.85rem}
+.rs-count{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.1em}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.rv-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:30px 26px;position:relative;overflow:hidden;transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+.rv-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-4px)}
+.rv-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:9rem;line-height:.7;color:rgba(201,168,76,.07);position:absolute;top:12px;left:14px;pointer-events:none}
+.rv-stars{display:flex;gap:3px;margin-bottom:16px}.rv-star{color:var(--gold);font-size:.8rem}
+.rv-text{font-family:'Cormorant Garamond',serif;font-size:1.06rem;font-weight:400;font-style:italic;color:rgba(255,255,255,.78);line-height:1.72;margin-bottom:22px}
+.rv-auth{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
+.rv-av{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:1px solid rgba(201,168,76,.22)}
+.rv-name{font-size:.83rem;font-weight:500;color:var(--white);margin-bottom:2px}
+.rv-proj{font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.rv-badge{margin-left:auto;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(201,168,76,.2);color:rgba(255,255,255,.3);padding:3px 8px;flex-shrink:0}
+
+/* MAP */
+#contact-sec{background:var(--cream-2);padding:90px 5%}
+.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:22px}
+.c-card{background:var(--white);border:1px solid #EDE9E1;padding:26px 24px;border-left:3px solid var(--gold);transition:transform .3s}
+.c-card:hover{transform:translateX(4px)}
+.c-type{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.c-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:8px}
+.c-addr{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.c-rows{display:flex;flex-direction:column;gap:7px}
+.c-row{display:flex;align-items:center;gap:9px;font-size:.76rem;color:var(--muted)}
+.map-wrap{position:relative;border:1px solid #DDD8CE;overflow:hidden}
+.map-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold);z-index:2}
+.map-wrap iframe{width:100%;height:460px;display:block;border:none;filter:grayscale(20%) contrast(1.05)}
+.map-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(14,13,11,.65),transparent);padding:18px 18px 14px;display:flex;align-items:center;gap:10px;z-index:2}
+.map-dot{width:9px;height:9px;background:var(--gold);border-radius:50%;animation:mdot 1.8s ease-in-out infinite}
+@keyframes mdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.map-lbl-text{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+
+/* FOOTER */
+.site-footer{background:var(--dark);padding:64px 5% 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ft-brand-col{display:flex;flex-direction:column;gap:15px}
+.ft-logo{display:flex;align-items:center;gap:10px}
+.ft-emblem{width:33px;height:33px;border:1.5px solid var(--gold);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ft-emblem::after{content:'';width:13px;height:13px;background:var(--gold)}
+.ft-logo h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);letter-spacing:.18em;text-transform:uppercase}
+.ft-city{font-size:.54rem;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;padding-left:43px;margin-top:2px}
+.ft-desc{font-size:.77rem;color:rgba(255,255,255,.3);line-height:1.8;max-width:290px}
+.ft-socials{display:flex;gap:8px}
+.ft-soc{width:35px;height:35px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:rgba(255,255,255,.38);text-decoration:none;transition:all .2s;cursor:pointer}
+.ft-soc:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col h4{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col a{font-size:.77rem;color:rgba(255,255,255,.36);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:var(--gold)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 0}
+.ft-copy{font-size:.63rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
+.ft-legal{display:flex;gap:18px}.ft-legal a{font-size:.6rem;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}.ft-legal a:hover{color:var(--gold)}
+
+/* FADE ANIMS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.fade-up.in{opacity:1;transform:translateY(0)}
+.fade-left{opacity:0;transform:translateX(-26px);transition:opacity .7s ease,transform .7s ease}.fade-left.in{opacity:1;transform:translateX(0)}
+.fade-right{opacity:0;transform:translateX(26px);transition:opacity .7s ease,transform .7s ease}.fade-right.in{opacity:1;transform:translateX(0)}
+
+.h-cards{display:none}.h-rpanel{display:none}.h-ring{display:none}
+@media(max-width:900px){.stats-strip{grid-template-columns:repeat(2,1fr)}.founders-top{grid-template-columns:1fr}.founders-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr 1fr;gap:30px}.rev-top{flex-direction:column}}
+@media(max-width:680px){.nav-links{display:none}.hamburger{display:flex}.wwd-feats{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}.ft-bottom{flex-direction:column;text-align:center}}
+
+.stat-n { font-size: 1.7rem; }
+  .wwd-tab { padding: 8px 10px; font-size: 0.56rem; }
+  .mat-grid { grid-template-columns: 1fr !important; }
+  .certs-grid { grid-template-columns: 1fr !important; }
+
+
+/* ──────────────────────────────────────
+   UNIVERSAL OVERFLOW CONTAINMENT
+────────────────────────────────────── */
+html { overflow-x: hidden; width: 100%; }
+body { overflow-x: hidden; width: 100%; position: relative; }
+section, header, footer, nav, div { max-width: 100%; }
+img, svg, video { max-width: 100%; }
+
+/* ──────────────────────────────────────
+   MOBILE RESPONSIVE (≤768px)
+────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* -- NAV -- */
+  nav { padding: 0 4% !important; height: 64px !important; }
+  nav.scrolled { height: 58px !important; }
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+  .mob-menu { top: 64px !important; padding: 20px 4% !important; }
+  .nav-brand h1 { font-size: 1.05rem !important; letter-spacing: 0.1em !important; }
+  .n-sub { font-size: 0.46rem !important; }
+  .n-emblem { width: 26px !important; height: 26px !important; }
+
+  /* -- HERO -- */
+  #hero {
+    height: auto !important;
+    min-height: 100svh !important;
+    overflow: hidden !important;
+    align-items: flex-start !important;
+    padding-top: 90px !important;
+    padding-bottom: 80px !important;
+  }
+  .h-rpanel { display: none !important; }
+  .h-ring1, .h-ring2, .h-ring3 { display: none !important; }
+  .h-cards { display: none !important; }
+  .h-scroll { display: none !important; }
+  .h-year { font-size: 4rem !important; right: 10px !important; bottom: 10px !important; }
+  .h-glow { width: 200px !important; height: 200px !important; left: 50% !important; }
+  .h-content { padding: 0 4% !important; max-width: 100% !important; width: 100% !important; }
+  .h-eyebrow { margin-bottom: 20px !important; }
+  .h-ey-text { font-size: 0.5rem !important; letter-spacing: 0.25em !important; }
+  .h-title { font-size: clamp(2.2rem, 9vw, 3rem) !important; }
+  .thin { display: block !important; }
+  .accent { display: block !important; }
+  .h-desc { font-size: 0.82rem !important; max-width: 100% !important; margin-bottom: 30px !important; line-height: 1.7 !important; }
+  .h-btns { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; margin-bottom: 28px !important; }
+  .hbp, .hbo { width: 100% !important; text-align: center !important; padding: 14px 16px !important; font-size: 0.62rem !important; }
+  .h-badges { flex-wrap: wrap !important; gap: 7px !important; }
+  .h-badge { font-size: 0.53rem !important; padding: 5px 10px !important; }
+  .h-fade { height: 80px !important; }
+
+  /* -- STATS -- */
+  .stats-strip { grid-template-columns: repeat(2,1fr) !important; }
+  .stat { padding: 20px 10px !important; }
+  .stat-n { font-size: 1.9rem !important; }
+  .stat-l { font-size: 0.54rem !important; }
+
+  /* -- SECTION GLOBAL -- */
+  #whatwedo, #founders, #reviews, #contact-sec,
+  .sec, section { padding-left: 4% !important; padding-right: 4% !important; }
+  .sec-title { font-size: clamp(1.7rem, 6vw, 2.4rem) !important; }
+  .sec-sub { font-size: 0.82rem !important; }
+  .sec-label { margin-bottom: 10px !important; }
+
+  /* -- WHAT WE DO -- */
+  #whatwedo { padding-top: 56px !important; padding-bottom: 56px !important; }
+  .wwd-tabs { flex-wrap: wrap !important; gap: 6px !important; justify-content: center !important; }
+  .wwd-tab { padding: 9px 13px !important; font-size: 0.58rem !important; }
+  .wwd-panel.active { display: flex !important; flex-direction: column !important; }
+  .wwd-visual { min-height: 220px !important; }
+  .wwd-vis-num { font-size: 4rem !important; }
+  .wwd-info { padding: 28px 4% !important; }
+  .wwd-title { font-size: 1.35rem !important; }
+  .wwd-desc { font-size: 0.82rem !important; }
+  .wwd-feats { grid-template-columns: 1fr 1fr !important; gap: 7px !important; }
+  .wwd-feat { font-size: 0.6rem !important; padding: 7px 10px !important; }
+
+  /* -- FOUNDERS -- */
+  #founders { padding-top: 60px !important; padding-bottom: 60px !important; }
+  .founders-top { grid-template-columns: 1fr !important; gap: 20px !important; margin-bottom: 36px !important; }
+  .founders-right p { font-size: 0.82rem !important; }
+  .founders-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .fc { overflow: visible !important; }
+  .fc-circle { width: 120px !important; height: 120px !important; }
+  .fc-circle-wrap { margin-bottom: -36px !important; }
+  .fc-portrait { padding: 30px 20px 0 !important; }
+  .fc-body { padding: 46px 20px 26px !important; }
+  .fc-name { font-size: 1.6rem !important; }
+  .fc-bio { font-size: 0.78rem !important; text-align: left !important; }
+  .fc-tags { justify-content: flex-start !important; }
+  .fc-links { justify-content: flex-start !important; }
+
+  /* -- REVIEWS -- */
+  #reviews { padding: 56px 4% !important; }
+  .rev-top { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+  .reviews-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .rv-card { padding: 24px 18px !important; }
+  .rv-text { font-size: 0.95rem !important; }
+
+  /* -- MAP / CONTACT -- */
+  #contact-sec { padding: 56px 4% !important; }
+  .contact-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .map-wrap iframe { height: 260px !important; }
+  .c-card { padding: 20px 16px !important; }
+
+  /* -- PAGE HEADERS (projects/interiors/construction/careers) -- */
+  .page-hdr { height: 240px !important; margin-top: 64px !important; }
+  .ph-title { font-size: clamp(1.7rem, 7vw, 2.6rem) !important; padding: 0 4% !important; text-align: center !important; }
+  .ph-sub { font-size: 0.7rem !important; padding: 0 4% !important; text-align: center !important; }
+  .ph-eyebrow { text-align: center !important; }
+
+  /* -- PROJECTS -- */
+  .ongoing-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .comp-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .proj-card { padding: 22px 18px !important; }
+  .prog-bar-wrap { margin-bottom: 14px !important; }
+
+  /* -- INTERIORS -- */
+  .styles-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .style-card { aspect-ratio: 4/3 !important; }
+  .style-card.wide { grid-column: span 1 !important; aspect-ratio: 4/3 !important; }
+  .svc-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .proc-track { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .proc-track::before { display: none !important; }
+  .proc-step { flex-direction: row !important; gap: 14px !important; align-items: flex-start !important; }
+  .port-masonry { columns: 1 !important; gap: 12px !important; }
+  .mat-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .mat-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .brand-row { flex-wrap: wrap !important; gap: 10px !important; }
+  .cta-banner { flex-direction: column !important; gap: 20px !important; padding: 40px 4% !important; text-align: center !important; }
+  .cta-btns { flex-direction: column !important; width: 100% !important; }
+  .btn-g, .btn-o { width: 100% !important; text-align: center !important; padding: 13px 16px !important; font-size: 0.62rem !important; }
+
+  /* -- CONSTRUCTION -- */
+  .con-svc-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .sites-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .hwb-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .hwb-right { position: static !important; top: auto !important; }
+  .hwb-steps { gap: 20px !important; }
+  .safety-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .certs-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+  .cert-card { padding: 18px 14px !important; }
+
+  /* -- CAREERS -- */
+  #careers-hero { padding: 100px 4% 56px !important; height: auto !important; }
+  .ch-title { font-size: clamp(2rem, 9vw, 2.8rem) !important; }
+  .ch-desc { font-size: 0.82rem !important; }
+  .ch-right { display: none !important; }
+  .ch-btns { flex-direction: column !important; gap: 10px !important; }
+  .ch-btn { width: 100% !important; text-align: center !important; }
+  .values-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .jobs-filter { flex-wrap: wrap !important; gap: 6px !important; }
+  .job-filter-btn { padding: 7px 12px !important; font-size: 0.57rem !important; }
+  .job-card { flex-direction: column !important; gap: 12px !important; padding: 20px 16px !important; }
+  .job-right { flex-direction: row !important; align-items: center !important; gap: 10px !important; }
+  .perks-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .perk-card { padding: 18px 14px !important; }
+  .culture-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .culture-visual { grid-template-columns: 1fr 1fr !important; }
+  .apply-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .apply-form { padding: 28px 18px !important; }
+  .form-row { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .form-submit { width: 100% !important; }
+
+  /* -- FOOTER -- */
+  .site-footer { padding: 48px 4% 0 !important; }
+  .ft-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ft-desc { max-width: 100% !important; }
+  .ft-bottom { flex-direction: column !important; text-align: center !important; gap: 10px !important; padding: 16px 0 !important; }
+  .ft-legal { justify-content: center !important; }
+}
+
+@media (max-width: 420px) {
+  .h-title { font-size: 2rem !important; }
+  .hbp, .hbo { font-size: 0.58rem !important; padding: 12px 14px !important; }
+  .wwd-feats { grid-template-columns: 1fr !important; }
+  .stat-n { font-size: 1.6rem !important; }
+  .mat-grid { grid-template-columns: 1fr !important; }
+  .certs-grid { grid-template-columns: 1fr !important; }
+  .perks-grid { grid-template-columns: 1fr !important; }
+  .culture-visual { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-brand" href="index.html">
+    <div class="logo-line"><div class="n-emblem"></div><h1>Ayodhya Group</h1></div>
+    <span class="n-sub">Bengaluru · Est. 2025</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
+    <li><a href="construction.html">Construction</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="#contact" class="n-cta">Enquire</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.querySelector('.mob-menu').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li>
+    <li><a href="interiors.html">Interiors</a></li><li><a href="construction.html">Construction</a></li>
+    <li><a href="careers.html">Careers</a></li><li><a href="#contact">Enquire Now</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-bg"></div>
+  <div class="h-lines"></div>
+  <div class="h-ring h-ring1"></div><div class="h-ring h-ring2"></div><div class="h-ring h-ring3"></div>
+  <div class="h-rpanel"></div>
+  <div class="h-glow"></div>
+  <div class="h-year">2025</div>
+  <div class="h-content">
+    <div class="h-eyebrow">
+      <div class="h-ey-dot"></div>
+      <span class="h-ey-text">Ayodhya Group · Bengaluru · 2025</span>
+      <div class="h-ey-line"></div>
+    </div>
+    <h1 class="h-title">
+      <span class="thin">Where Vision</span>
+      <span class="accent">Becomes Legacy</span>
+    </h1>
+    <p class="h-desc">A bold new real estate venture born in Bengaluru — redefining property marketing, bespoke interiors, and precision construction for a new generation of clients.</p>
+    <div class="h-btns">
+      <button class="hbp" onclick="document.getElementById('whatwedo').scrollIntoView({behavior:'smooth'})">Explore What We Do</button>
+      <button class="hbo" onclick="document.getElementById('founders').scrollIntoView({behavior:'smooth'})">Meet the Founders</button>
+    </div>
+    <div class="h-badges">
+      <div class="h-badge"><div class="h-badge-d"></div>Real Estate Marketing</div>
+      <div class="h-badge"><div class="h-badge-d"></div>Bespoke Interiors</div>
+      <div class="h-badge"><div class="h-badge-d"></div>Construction</div>
+    </div>
+  </div>
+  <div class="h-cards">
+    <div class="h-card"><div class="hc-label">Founded</div><div class="hc-val">2025</div><div class="hc-sub">Bengaluru, Karnataka</div></div>
+    <div class="h-card"><div class="hc-label">Focus</div><div class="hc-val">3</div><div class="hc-sub">Core Service Pillars</div></div>
+    <div class="h-card"><div class="hc-label">Vision</div><div class="hc-val">∞</div><div class="hc-sub">Building for Generations</div></div>
+  </div>
+  <div class="h-scroll"><span>Scroll</span><div class="h-scroll-line"></div></div>
+  <div class="h-fade"></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat fade-up"><div class="stat-n">2025</div><div class="stat-l">Year Founded</div></div>
+  <div class="stat fade-up" style="transition-delay:.1s"><div class="stat-n">3</div><div class="stat-l">Service Pillars</div></div>
+  <div class="stat fade-up" style="transition-delay:.2s"><div class="stat-n">BLR</div><div class="stat-l">Bengaluru HQ</div></div>
+  <div class="stat fade-up" style="transition-delay:.3s"><div class="stat-n">∞</div><div class="stat-l">Ambition</div></div>
+</div>
+
+<!-- WHAT WE DO -->
+<section id="whatwedo">
+  <div class="wwd-header fade-up">
+    <div class="sec-label c"><span>Three Pillars</span></div>
+    <h2 class="sec-title" style="color:var(--white);text-align:center">What We Do</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.4);text-align:center;margin:0 auto 0">Three integrated strengths that make Ayodhya Group Bengaluru's most complete real estate partner.</p>
+  </div>
+  <div class="wwd-tabs fade-up" style="transition-delay:.1s">
+    <button class="wwd-tab active" onclick="switchTab(0)">📊 Marketing</button>
+    <button class="wwd-tab" onclick="switchTab(1)">🛋️ Interiors</button>
+    <button class="wwd-tab" onclick="switchTab(2)">🏗️ Construction</button>
+  </div>
+  <!-- Panel 1: Marketing -->
+  <div class="wwd-panel active" id="wwd-0">
+    <div class="wwd-visual">
+      <div class="wwd-vis-bg wwd-vis-bg-1"></div>
+      <div class="wwd-vis-icon">📊</div>
+      <div class="wwd-vis-num">01</div>
+      <div class="wwd-vis-tag">Pillar One</div>
+    </div>
+    <div class="wwd-info">
+      <div class="wwd-cat">Real Estate Marketing</div>
+      <div class="wwd-title">Connecting the Right Buyer to the Right Space</div>
+      <div class="wwd-desc">Strategic, data-driven property marketing that creates visibility, builds trust, and accelerates sales — through precision digital targeting, compelling storytelling, and on-ground activations.</div>
+      <div class="wwd-feats">
+        <span class="wwd-feat">Digital Campaigns</span><span class="wwd-feat">Lead Generation</span>
+        <span class="wwd-feat">Brand Positioning</span><span class="wwd-feat">Sales Strategy</span>
+        <span class="wwd-feat">360° Virtual Tours</span><span class="wwd-feat">Market Research</span>
+      </div>
+      <a href="projects.html" class="wwd-link">View Projects <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+  <!-- Panel 2: Interiors -->
+  <div class="wwd-panel" id="wwd-1">
+    <div class="wwd-visual">
+      <div class="wwd-vis-bg wwd-vis-bg-2"></div>
+      <div class="wwd-vis-icon">🛋️</div>
+      <div class="wwd-vis-num">02</div>
+      <div class="wwd-vis-tag">Pillar Two</div>
+    </div>
+    <div class="wwd-info">
+      <div class="wwd-cat">Interior Design</div>
+      <div class="wwd-title">Bespoke Spaces That Tell Your Story</div>
+      <div class="wwd-desc">From concept to handover — luxury interiors crafted with artisanal materials, photorealistic 3D visualisation, and a deep understanding of how people truly inhabit space.</div>
+      <div class="wwd-feats">
+        <span class="wwd-feat">Space Planning</span><span class="wwd-feat">Custom Furniture</span>
+        <span class="wwd-feat">Lighting Design</span><span class="wwd-feat">3D Visualisation</span>
+        <span class="wwd-feat">Kitchen & Bath</span><span class="wwd-feat">Art Curation</span>
+      </div>
+      <a href="interiors.html" class="wwd-link">Explore Interiors <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+  <!-- Panel 3: Construction -->
+  <div class="wwd-panel" id="wwd-2">
+    <div class="wwd-visual">
+      <div class="wwd-vis-bg wwd-vis-bg-3"></div>
+      <div class="wwd-vis-icon">🏗️</div>
+      <div class="wwd-vis-num">03</div>
+      <div class="wwd-vis-tag">Pillar Three</div>
+    </div>
+    <div class="wwd-info">
+      <div class="wwd-cat">Construction</div>
+      <div class="wwd-title">Engineered to Last, Delivered on Time</div>
+      <div class="wwd-desc">End-to-end construction excellence — from foundation to final handover — built to the highest structural standards with our in-house workforce and rigorous quality management.</div>
+      <div class="wwd-feats">
+        <span class="wwd-feat">High-Rise Builds</span><span class="wwd-feat">Township Dev.</span>
+        <span class="wwd-feat">MEP Engineering</span><span class="wwd-feat">Green Building</span>
+        <span class="wwd-feat">Quality Control</span><span class="wwd-feat">On-Time Delivery</span>
+      </div>
+      <a href="construction.html" class="wwd-link">Explore Construction <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section id="founders">
+  <div class="founders-top">
+    <div class="fade-left">
+      <div class="sec-label"><span>The Visionaries</span></div>
+      <h2 class="sec-title">Meet Our<br>Founders</h2>
+      <div class="f-divider" style="margin-top:16px"><span></span><i></i><span></span></div>
+    </div>
+    <div class="founders-right fade-right">
+      <p>Ayodhya Group was born from the conviction that great real estate is never just about structures — it is about crafting a better way of living and conducting business in Bengaluru and beyond.</p>
+      <p>Together, Rajshekar and Suresh bring complementary expertise in real estate strategy, operations, and client experience to build something genuinely new.</p>
+    </div>
+  </div>
+  <div class="founders-grid">
+    <div class="fc fade-up">
+      <div class="fc-portrait">
+        <div class="fc-circle-wrap">
+          <div class="fc-circle">
+            <!-- Add your image: replace src="your-photo.jpg" -->
+            <img src="rajshekar.jpeg" alt="Rajshekar"/>
+          </div>
+        </div>
+      </div>
+      <div class="fc-body">
+        <div class="fc-role">Co-Founder & Managing Director</div>
+        <div class="fc-name">Rajshekar</div>
+        <div class="fc-name-div"><span></span><i></i><span></span></div>
+        <div class="fc-bio">A sharp real estate strategist with deep expertise in market positioning, sales leadership, and project execution. Rajshekar drives Ayodhya Group's vision and growth with a hands-on approach and an unwavering commitment to delivering value to every client.</div>
+        <div class="fc-tags"><span class="fc-tag">Real Estate Strategy</span><span class="fc-tag">Sales Leadership</span><span class="fc-tag">Project Management</span><span class="fc-tag">Growth</span></div>
+        <div class="fc-links"><a class="fc-link">in</a><a class="fc-link">✉</a><a class="fc-link">📞</a></div>
+      </div>
+    </div>
+    <div class="fc fade-up" style="transition-delay:.15s">
+      <div class="fc-portrait">
+        <div class="fc-circle-wrap">
+          <div class="fc-circle">
+            <!-- Add your image: replace src="your-photo.jpg" -->
+            <img src="suresh.jpeg" alt="Suresh"/>
+          </div>
+        </div>
+      </div>
+      <div class="fc-body">
+        <div class="fc-role">Co-Founder & Director – Operations</div>
+        <div class="fc-name">Suresh</div>
+        <div class="fc-name-div"><span></span><i></i><span></span></div>
+        <div class="fc-bio">Meticulous, client-focused, and passionate about spaces that genuinely delight — Suresh oversees all operations, interior project coordination, and client engagement at Ayodhya Group, personally ensuring every handover exceeds expectations.</div>
+        <div class="fc-tags"><span class="fc-tag">Operations</span><span class="fc-tag">Client Relations</span><span class="fc-tag">Interior Oversight</span><span class="fc-tag">Quality</span></div>
+        <div class="fc-links"><a class="fc-link">in</a><a class="fc-link">✉</a><a class="fc-link">📞</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="rev-top">
+    <div class="fade-left">
+      <div class="sec-label" style="--gold:#E8C97A"><span style="color:var(--gold-light,#E8C97A)">Client Voices</span></div>
+      <h2 class="sec-title" style="color:var(--white)">What Clients Say</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.4);margin-bottom:0">Trusted by homeowners and investors across Bengaluru.</p>
+    </div>
+    <div class="rev-score fade-up">
+      <div class="rs-num">4.9</div>
+      <div><div class="rs-stars"><span class="rs-star">★</span><span class="rs-star">★</span><span class="rs-star">★</span><span class="rs-star">★</span><span class="rs-star">★</span></div><div class="rs-count">Based on early client reviews</div></div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="rv-card fade-up">
+      <div class="rv-stars"><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span></div>
+      <div class="rv-text">Rajshekar walked us through every step of the process with total transparency. We felt guided, not sold to. An outstanding first experience with a startup that truly punches above its weight.</div>
+      <div class="rv-auth"><div class="rv-av">🧑</div><div><div class="rv-name">Anil Sharma</div><div class="rv-proj">Whitefield, Bengaluru</div></div><div class="rv-badge">Residential</div></div>
+    </div>
+    <div class="rv-card fade-up" style="transition-delay:.1s">
+      <div class="rv-stars"><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span></div>
+      <div class="rv-text">Suresh personally oversaw our apartment interior from mood board to final styling. The result was breathtaking — every detail was considered. I have recommended them to three friends already.</div>
+      <div class="rv-auth"><div class="rv-av">👩</div><div><div class="rv-name">Priya & Kiran Nair</div><div class="rv-proj">Indiranagar, Bengaluru</div></div><div class="rv-badge">Interiors</div></div>
+    </div>
+    <div class="rv-card fade-up" style="transition-delay:.2s">
+      <div class="rv-stars"><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span><span class="rv-star">★</span></div>
+      <div class="rv-text">A fresh, professional team that understands the Bengaluru market deeply. Their marketing strategy for our project was sharp and the lead quality was exceptional. Will work with them again.</div>
+      <div class="rv-auth"><div class="rv-av">👨‍💼</div><div><div class="rv-name">Deepak Reddy</div><div class="rv-proj">Koramangala, Bengaluru</div></div><div class="rv-badge">Marketing</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP / CONTACT -->
+<section id="contact-sec">
+  <div class="sec-label"><span>Find Us</span></div>
+  <h2 class="sec-title">Our Location</h2>
+  <p class="sec-sub">Visit our Bengaluru studio or reach out — we are always happy to connect.</p>
+  <div class="contact-grid">
+    <div class="contact-info fade-left">
+      <div class="c-card">
+        <div class="c-type">Studio & Head Office</div>
+        <div class="c-name">Ayodhya Group</div>
+        <div class="c-addr">3rd Floor, 100 Feet Road,<br>Indiranagar, Bengaluru,<br>Karnataka – 560 038</div>
+        <div class="c-rows">
+          <div class="c-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.4 2 2 0 0 1 3.9 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 98765 43210</div>
+          <div class="c-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff979a939390bf9e86909b97869e988d908a8fd19691">[email&#160;protected]</a></div>
+          <div class="c-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon – Sat: 10:00 AM – 7:00 PM</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrap fade-right">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9!2d77.6408!3d12.9784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae168d73b2b4eb%3A0x5e7c8a8c8f0b1234!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ayodhya Group Bengaluru"></iframe>
+      <div class="map-lbl"><div class="map-dot"></div><div class="map-lbl-text">Ayodhya Group · Indiranagar, Bengaluru</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="contact">
+  <div class="ft-grid">
+    <div class="ft-brand-col">
+      <div><div class="ft-logo"><div class="ft-emblem"></div><h2>Ayodhya Group</h2></div><div class="ft-city">Bengaluru, Karnataka · Est. 2025</div></div>
+      <p class="ft-desc">A bold Bengaluru startup redefining real estate through sharp marketing, artisanal interiors, and precision construction.</p>
+      <div class="ft-socials"><a class="ft-soc">ig</a><a class="ft-soc">in</a><a class="ft-soc">yt</a><a class="ft-soc">fb</a></div>
+    </div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="index.html">Home</a></li><li><a href="#founders">Founders</a></li><li><a href="#whatwedo">What We Do</a></li><li><a href="careers.html">Careers</a></li></ul></div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="interiors.html">Interiors</a></li><li><a href="construction.html">Construction</a></li><li><a href="#contact-sec">Contact</a></li></ul></div>
+    <div class="ft-col"><h4>Reach Us</h4><ul><li><a href="tel:+919876543210">+91 98765 43210</a></li><li><a href="/cdn-cgi/l/email-protection#543c3138383b14352d3b303c2d3533263b21247a3d3a"><span class="__cf_email__" data-cfemail="3f575a5353507f5e46505b57465e584d504a4f115651">[email&#160;protected]</span></a></li><li><a href="#">Indiranagar, Bengaluru</a></li><li><a href="#">Karnataka – 560 038</a></li></ul></div>
+  </div>
+  <div class="ft-bottom"><div class="ft-copy">© 2025 Ayodhya Group. All rights reserved.</div><div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>80);
+});
+function switchTab(i){
+  document.querySelectorAll('.wwd-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('.wwd-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>obs.observe(el));
+</script>
+
+<!-- ═══ STICKY CONTACT ICONS ═══ -->
+<style>
+.sticky-contact{
+  position:fixed;right:0;top:50%;transform:translateY(-50%);
+  z-index:9000;display:flex;flex-direction:column;gap:3px;
+}
+.sc-item{
+  display:flex;align-items:center;
+  background:var(--dark,#0E0D0B);
+  border:1px solid rgba(201,168,76,.22);border-right:none;
+  overflow:hidden;cursor:pointer;
+  transition:transform .38s cubic-bezier(.16,1,.3,1),border-color .3s;
+  position:relative;text-decoration:none;
+}
+.sc-item:hover{transform:translateX(-6px);border-color:rgba(201,168,76,.6)}
+.sc-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:#C9A84C;transform:scaleY(0);transform-origin:bottom;
+  transition:transform .32s cubic-bezier(.16,1,.3,1);
+}
+.sc-item:hover::before{transform:scaleY(1)}
+.sc-icon{width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.sc-icon svg{width:20px;height:20px;fill:none;stroke-width:1.8}
+.sc-lbl{
+  font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);white-space:nowrap;
+  max-width:0;overflow:hidden;opacity:0;font-weight:500;
+  transition:max-width .38s cubic-bezier(.16,1,.3,1),padding .35s,opacity .3s;
+}
+.sc-item:hover .sc-lbl{max-width:100px;padding-right:14px;opacity:1}
+.sc-wa .sc-icon svg{stroke:#25D366}
+.sc-ph .sc-icon svg{stroke:#4A90D9}
+.sc-em .sc-icon svg{stroke:#C9A84C}
+.sc-ig .sc-icon{background:linear-gradient(135deg,#f09433,#bc1888)}
+.sc-ig .sc-icon svg{stroke:#fff}
+@media(max-width:768px){.sticky-contact{display:none}}
+</style>
+<div class="sticky-contact">
+  <a class="sc-item sc-wa" href="https://wa.me/919876543210" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+    <span class="sc-lbl">WhatsApp</span>
+  </a>
+  <a class="sc-item sc-ph" href="tel:+919876543210" aria-label="Call">
+    <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.4 2 2 0 0 1 3.9 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <span class="sc-lbl">Call Now</span>
+  </a>
+  <a class="sc-item sc-em" href="mailto:hello@ayodhyagroup.in" aria-label="Email">
+    <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+    <span class="sc-lbl">Email Us</span>
+  </a>
+  <a class="sc-item sc-ig" href="https://instagram.com/ayodhyagroup" target="_blank" rel="noopener" aria-label="Instagram">
+    <div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+    <span class="sc-lbl">Instagram</span>
+  </a>
+</div>
+
+
+</body>
+</html>

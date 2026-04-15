@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ayodhya Group – Bespoke Interiors</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9A84C;--gold-light:#E8C97A;--cream:#FAF7F2;--cream-2:#F3EDE3;--dark:#0E0D0B;--dark-2:#1A1814;--dark-3:#252220;--muted:#8A8580;--white:#fff}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;width:100%;position:relative}
+img{max-width:100%;display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:80px;background:rgba(14,13,11,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.18);transition:height .3s}
+nav.scrolled{height:66px}
+.nav-brand{display:flex;flex-direction:column;gap:1px;text-decoration:none}.logo-line{display:flex;align-items:center;gap:10px}
+.n-emblem{width:32px;height:32px;flex-shrink:0;border:1.5px solid var(--gold);transform:rotate(45deg);display:flex;align-items:center;justify-content:center}
+.n-emblem::after{content:'';width:12px;height:12px;background:var(--gold)}
+.nav-brand h1{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:.18em;text-transform:uppercase}
+.n-sub{font-size:.54rem;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;padding-left:42px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.72);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links .n-cta{background:var(--gold);color:var(--dark)!important;padding:8px 20px;font-weight:600}.nav-links .n-cta::after{display:none}.nav-links .n-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}.hamburger span{display:block;width:24px;height:1.5px;background:var(--white)}
+.mob-menu{display:none;position:fixed;top:80px;left:0;right:0;background:rgba(14,13,11,.98);padding:24px 5%;z-index:999;border-bottom:1px solid rgba(201,168,76,.15)}
+.mob-menu.open{display:block}.mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-menu a{text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+
+/* PAGE HEADER */
+.page-hdr{margin-top:80px;height:420px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--dark-2)}
+.page-hdr::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0,transparent 40px,rgba(201,168,76,.025) 40px,rgba(201,168,76,.025) 41px),repeating-linear-gradient(-45deg,transparent 0,transparent 40px,rgba(201,168,76,.025) 40px,rgba(201,168,76,.025) 41px)}
+.page-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:130px;background:linear-gradient(to bottom,transparent,var(--cream))}
+.phc{position:relative;z-index:2;text-align:center;padding:0 5%}
+.ph-tag{display:inline-block;font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.35);padding:5px 16px;margin-bottom:18px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:300;color:var(--white);line-height:1.1}
+.ph-title em{font-style:italic;color:var(--gold-light)}
+.hdr-div{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px}
+.hdr-div span{width:36px;height:1px;background:rgba(201,168,76,.45)}.hdr-div i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block}
+
+/* SHARED */
+.sec{padding:90px 5%}
+.sec-label{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sec-label span{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.sec-label::before{content:'';display:block;width:26px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:10px}
+.sec-sub{color:var(--muted);font-size:.88rem;font-weight:300;max-width:520px;line-height:1.8;margin-bottom:52px}
+
+/* ═══ DESIGN STYLES GRID ═══ */
+.styles-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:320px 320px;
+  gap:4px;
+  margin-top:8px;
+}
+/* Card 1 — Wide hero (Modern Luxury) */
+.sc-1{grid-column:1/8;grid-row:1/2}
+/* Card 2 — Tall right top (Art Deco) */
+.sc-2{grid-column:8/13;grid-row:1/3}
+/* Card 3 — Bottom left (Classical) */
+.sc-3{grid-column:1/5;grid-row:2/3}
+/* Card 4 — Bottom mid (Biophilic) */
+.sc-4{grid-column:5/8;grid-row:2/3}
+
+.style-card{
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.sc-img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .7s cubic-bezier(.16,1,.3,1);
+  display:block;
+}
+.style-card:hover .sc-img{transform:scale(1.07)}
+/* Fallback gradient shown while image loads */
+.sc-1 .sc-img{object-position:center 30%}
+.sc-2 .sc-img{object-position:center 20%}
+
+.style-card .sov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,4,3,.92) 0%,rgba(5,4,3,.35) 45%,transparent 70%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:28px 26px;
+  transition:background .4s;
+}
+.style-card:hover .sov{background:linear-gradient(to top,rgba(5,4,3,.95) 0%,rgba(5,4,3,.5) 50%,rgba(5,4,3,.1) 80%)}
+.s-tag{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px}
+.s-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--white);line-height:1.15;margin-bottom:9px}
+.sc-1 .s-name{font-size:1.9rem}
+.sc-2 .s-name{font-size:1.65rem}
+.s-desc{font-size:.74rem;color:rgba(255,255,255,.55);line-height:1.65;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .45s cubic-bezier(.16,1,.3,1),opacity .35s .05s;
+}
+.style-card:hover .s-desc{max-height:100px;opacity:1}
+/* Gold accent line */
+.style-card::before{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .5s cubic-bezier(.16,1,.3,1);z-index:3}
+.style-card:hover::before{width:100%}
+/* Number badge */
+.sc-num{
+  position:absolute;top:16px;right:16px;
+  font-family:'Cormorant Garamond',serif;font-size:.75rem;font-weight:600;
+  color:rgba(255,255,255,.5);letter-spacing:.2em;
+  border:1px solid rgba(255,255,255,.15);padding:4px 9px;
+  background:rgba(0,0,0,.3);backdrop-filter:blur(6px);
+  z-index:3;
+}
+
+/* ═══ SERVICES ═══ */
+#int-services{background:var(--dark-2);padding:90px 5%}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.svc-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:36px 30px;position:relative;overflow:hidden;transition:border-color .3s,background .3s,transform .4s cubic-bezier(.16,1,.3,1);cursor:pointer}
+.svc-card:hover{border-color:rgba(201,168,76,.4);background:rgba(255,255,255,.055);transform:translateY(-5px)}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:rgba(255,255,255,.035);position:absolute;top:10px;right:18px;line-height:1}
+.svc-icon{width:52px;height:52px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:22px}
+.svc-cat{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:9px}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--white);line-height:1.2;margin-bottom:12px}
+.svc-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.75;margin-bottom:18px}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.svc-list li{display:flex;align-items:center;gap:9px;font-size:.73rem;color:rgba(255,255,255,.4)}
+.svc-list li::before{content:'';width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+
+/* ═══ PROCESS ═══ */
+.proc-sec{padding:90px 5%;background:var(--dark-3)}
+.proc-track{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:14px}
+.proc-track::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:rgba(201,168,76,.15)}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px;position:relative}
+.ps-dot{width:54px;height:54px;border:1px solid rgba(201,168,76,.3);background:var(--dark-2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px;position:relative;z-index:2;transition:all .35s}
+.proc-step:hover .ps-dot{border-color:var(--gold);background:rgba(201,168,76,.1);transform:scale(1.08)}
+.ps-num{position:absolute;top:-7px;right:-7px;width:19px;height:19px;background:var(--gold);color:var(--dark);font-size:.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif}
+.ps-title{font-family:'Cormorant Garamond',serif;font-size:.98rem;font-weight:500;color:var(--white);line-height:1.25;margin-bottom:8px}
+.ps-desc{font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.6}
+
+/* ═══ PORTFOLIO — REAL IMAGE GRID ═══ */
+.portfolio-sec{background:var(--dark);padding:90px 5%}
+.port-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:220px;
+  gap:4px;
+  margin-top:8px;
+}
+.pg-1{grid-column:1/6;grid-row:1/3}   /* tall */
+.pg-2{grid-column:6/9;grid-row:1/2}
+.pg-3{grid-column:9/13;grid-row:1/3}  /* tall */
+.pg-4{grid-column:6/9;grid-row:2/3}
+.pg-5{grid-column:1/5;grid-row:3/4}
+.pg-6{grid-column:5/9;grid-row:3/5}   /* tall */
+.pg-7{grid-column:9/13;grid-row:3/4}
+.pg-8{grid-column:1/5;grid-row:4/5}
+.pg-9{grid-column:9/13;grid-row:4/5}
+
+.port-tile{
+  position:relative;overflow:hidden;cursor:pointer;background:var(--dark-3);
+}
+.port-tile img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .65s cubic-bezier(.16,1,.3,1);
+  display:block;
+}
+.port-tile:hover img{transform:scale(1.08)}
+.port-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,4,3,.9) 0%,rgba(5,4,3,.2) 45%,transparent 65%);
+  opacity:0;transition:opacity .35s;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:18px 16px;
+}
+.port-tile:hover .port-overlay{opacity:1}
+.p-room{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px}
+.p-proj{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:500;color:var(--white);line-height:1.2}
+/* Always show caption on large tiles */
+.pg-1 .port-overlay,.pg-3 .port-overlay{opacity:1;background:linear-gradient(to top,rgba(5,4,3,.88) 0%,rgba(5,4,3,.1) 50%,transparent 70%)}
+
+/* ═══ MATERIALS ═══ */
+.mat-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
+.mat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.mat-card{padding:22px 18px;border:1px solid #EDE9E1;background:var(--white);transition:border-color .3s,transform .3s}
+.mat-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.mat-swatch{width:100%;height:54px;margin-bottom:14px;position:relative;overflow:hidden}
+.mat-swatch img{width:100%;height:100%;object-fit:cover}
+.ms1{background:linear-gradient(90deg,#e8ddd0,#c8b89a)}
+.ms2{background:linear-gradient(90deg,#b0c8c0,#8aada0)}
+.ms3{background:linear-gradient(90deg,#c8a880,#9a7850)}
+.ms4{background:linear-gradient(90deg,#d0d4d8,#a8b4bc)}
+.ms5{background:linear-gradient(90deg,#ddd0b8,#bca88a)}
+.ms6{background:linear-gradient(90deg,#c0ccb4,#98aa88)}
+.mat-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;margin-bottom:3px}
+.mat-sub{font-size:.64rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.brand-list{display:flex;flex-direction:column;gap:14px}
+.brand-row{display:flex;align-items:center;gap:16px;padding:17px 20px;background:var(--white);border:1px solid #EDE9E1;transition:border-color .3s,transform .3s}
+.brand-row:hover{border-color:var(--gold);transform:translateX(5px)}
+.brand-icon{width:42px;height:42px;flex-shrink:0;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;margin-bottom:2px}
+.brand-cat{font-size:.62rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.brand-badge{margin-left:auto;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(201,168,76,.35);color:var(--gold);padding:3px 9px;flex-shrink:0}
+
+/* ═══ CTA ═══ */
+.cta-banner{background:var(--dark);padding:80px 5%;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;position:relative;overflow:hidden;border-top:1px solid rgba(201,168,76,.15)}
+.cta-banner::before{content:'INTERIORS';position:absolute;right:2%;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(255,255,255,.022);letter-spacing:.1em;pointer-events:none;white-space:nowrap}
+.cta-label{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:300;color:var(--white);line-height:1.2}
+.cta-title em{font-style:italic;color:var(--gold-light)}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0}
+.btn-g{background:var(--gold);color:var(--dark);font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:14px 32px;font-weight:600;border:none;cursor:pointer;transition:background .2s}
+.btn-g:hover{background:var(--gold-light)}
+.btn-o{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.18);font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:14px 32px;cursor:pointer;transition:all .2s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ═══ FOOTER ═══ */
+.site-footer{background:var(--dark);padding:64px 5% 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ft-brand-col{display:flex;flex-direction:column;gap:15px}
+.ft-logo{display:flex;align-items:center;gap:10px}
+.ft-emblem{width:33px;height:33px;border:1.5px solid var(--gold);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ft-emblem::after{content:'';width:13px;height:13px;background:var(--gold)}
+.ft-logo h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);letter-spacing:.18em;text-transform:uppercase}
+.ft-city{font-size:.54rem;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;padding-left:43px;margin-top:2px}
+.ft-desc{font-size:.77rem;color:rgba(255,255,255,.3);line-height:1.8;max-width:290px}
+.ft-socials{display:flex;gap:8px}
+.ft-soc{width:35px;height:35px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:rgba(255,255,255,.38);text-decoration:none;transition:all .2s;cursor:pointer}
+.ft-soc:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col h4{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col a{font-size:.77rem;color:rgba(255,255,255,.36);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:var(--gold)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 0}
+.ft-copy{font-size:.63rem;color:rgba(255,255,255,.2)}.ft-legal{display:flex;gap:18px}.ft-legal a{font-size:.6rem;color:rgba(255,255,255,.2);text-decoration:none}.ft-legal a:hover{color:var(--gold)}
+
+/* FADE ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.fade-up.in{opacity:1;transform:translateY(0)}
+.fade-left{opacity:0;transform:translateX(-26px);transition:opacity .7s ease,transform .7s ease}.fade-left.in{opacity:1;transform:translateX(0)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .styles-grid{grid-template-rows:280px 280px}
+  .port-grid{grid-auto-rows:190px}
+  .mat-layout{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:900px){
+  .styles-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+  }
+  .sc-1{grid-column:1/3;grid-row:auto;aspect-ratio:16/9;height:auto}
+  .sc-2{grid-column:1/2;grid-row:auto;aspect-ratio:3/4;height:auto}
+  .sc-3{grid-column:2/3;grid-row:auto;aspect-ratio:3/4;height:auto}
+  .sc-4{grid-column:1/3;grid-row:auto;aspect-ratio:16/9;height:auto}
+  .styles-grid .style-card{height:260px}
+  .sc-1,.sc-4{height:220px}
+
+  .port-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px;grid-template-rows:none}
+  .pg-1,.pg-2,.pg-3,.pg-4,.pg-5,.pg-6,.pg-7,.pg-8,.pg-9{grid-column:auto;grid-row:auto}
+  .pg-1,.pg-3,.pg-6{height:200px}
+  .proc-track{grid-template-columns:repeat(3,1fr)}
+  .proc-track::before{display:none}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:768px){
+  nav{padding:0 4%!important;height:64px!important}
+  nav.scrolled{height:58px!important}
+  .nav-links{display:none!important}
+  .hamburger{display:flex!important}
+  .mob-menu{top:64px!important;padding:20px 4%!important}
+  .nav-brand h1{font-size:1.05rem!important;letter-spacing:.1em!important}
+  .n-sub{font-size:.46rem!important}
+  .n-emblem{width:26px!important;height:26px!important}
+
+  .page-hdr{height:280px!important;margin-top:64px!important}
+  .ph-title{font-size:clamp(1.8rem,7vw,2.8rem)!important}
+
+  .sec{padding:56px 4%!important}
+  .sec-title{font-size:clamp(1.6rem,6vw,2.4rem)!important}
+  .sec-sub{font-size:.82rem!important;margin-bottom:32px!important}
+  .proc-sec{padding:56px 4%!important}
+  .portfolio-sec{padding:56px 4%!important}
+
+  .styles-grid{
+    grid-template-columns:1fr!important;
+    grid-template-rows:none!important;
+    gap:3px!important;
+  }
+  .sc-1,.sc-2,.sc-3,.sc-4{grid-column:1/-1!important;grid-row:auto!important;height:240px!important}
+
+  .port-grid{grid-template-columns:1fr!important;grid-auto-rows:220px!important}
+  .pg-1,.pg-2,.pg-3,.pg-4,.pg-5,.pg-6,.pg-7,.pg-8,.pg-9{grid-column:1/-1!important;grid-row:auto!important;height:220px!important}
+
+  .proc-track{grid-template-columns:1fr!important;gap:20px!important}
+  .proc-track::before{display:none!important}
+  .proc-step{flex-direction:row!important;align-items:flex-start!important;gap:16px!important;text-align:left!important}
+  .ps-dot{flex-shrink:0!important}
+
+  .mat-layout{grid-template-columns:1fr!important;gap:32px!important}
+  .mat-grid{grid-template-columns:1fr 1fr!important}
+
+  .cta-banner{flex-direction:column!important;gap:24px!important;padding:48px 4%!important;text-align:center!important}
+  .cta-btns{flex-direction:column!important;width:100%!important}
+  .btn-g,.btn-o{width:100%!important;text-align:center!important}
+
+  .site-footer{padding:48px 4% 0!important}
+  .ft-grid{grid-template-columns:1fr!important;gap:28px!important}
+  .ft-desc{max-width:100%!important}
+  .ft-bottom{flex-direction:column!important;text-align:center!important;gap:10px!important}
+  .ft-legal{justify-content:center!important}
+}
+@media(max-width:420px){
+  .svc-grid{grid-template-columns:1fr!important}
+  .mat-grid{grid-template-columns:1fr!important}
+  .sc-1,.sc-2,.sc-3,.sc-4{height:200px!important}
+}
+
+/* ── STICKY ICONS ── */
+.sticky-icons{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:3px}
+.si{display:flex;align-items:center;background:#252220;border:1px solid rgba(201,168,76,.22);border-right:none;cursor:pointer;overflow:hidden;position:relative;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s}
+.si:hover{transform:translateX(-5px);border-color:rgba(201,168,76,.6)}
+.si::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#C9A84C;transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.si:hover::before{transform:scaleY(1)}
+.si-icon{width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.si-icon svg{width:19px;height:19px}
+.si-ig .si-icon{background:linear-gradient(135deg,#f09433,#bc1888)}
+.si-lbl{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .35s cubic-bezier(.16,1,.3,1),padding .3s,opacity .25s;opacity:0;font-weight:500;font-family:'Jost',sans-serif}
+.si:hover .si-lbl{max-width:100px;padding-right:15px;opacity:1}
+@media(max-width:768px){.sticky-icons{display:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-brand" href="index.html">
+    <div class="logo-line"><div class="n-emblem"></div><h1>Ayodhya Group</h1></div>
+    <span class="n-sub">Bengaluru · Est. 2025</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="interiors.html" class="active">Interiors</a></li>
+    <li><a href="construction.html">Construction</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact" class="n-cta">Enquire</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.querySelector('.mob-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mob-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
+    <li><a href="construction.html">Construction</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact">Enquire Now</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-hdr">
+  <div class="phc">
+    <div class="ph-tag">Bespoke Interiors</div>
+    <h1 class="ph-title">Spaces That <em>Whisper</em> Your Story</h1>
+    <div class="hdr-div"><span></span><i></i><span></span></div>
+  </div>
+</div>
+
+<!-- ═══ DESIGN STYLES ═══ -->
+<section class="sec" style="background:var(--dark);padding-bottom:0">
+  <div class="sec-label" style="color:var(--gold-light)"><span>Our Aesthetic Range</span></div>
+  <h2 class="sec-title" style="color:var(--white)">Design Styles We Master</h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,.4);margin-bottom:40px">From cinematic opulence to whispered minimalism — every style executed with the same obsessive precision.</p>
+
+  <div class="styles-grid">
+
+    <!-- Card 1: Modern Luxury (wide) -->
+    <div class="style-card sc-1 fade-up">
+      <img class="sc-img"
+        src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400&q=85&auto=format&fit=crop"
+        alt="Modern Luxury Living Room"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+      <!-- Elegant fallback if image blocked -->
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1a1408,#4a3418);z-index:0"></div>
+      <div class="sc-num">01</div>
+      <div class="sov" style="z-index:2">
+        <div class="s-tag">Signature Style</div>
+        <div class="s-name">Modern Luxury</div>
+        <div class="s-desc">Clean architectural lines married with sumptuous materials — marble, brass, and bespoke millwork create interiors that feel effortlessly grand without ostentation.</div>
+      </div>
+    </div>
+
+    <!-- Card 2: Art Deco (tall right) -->
+    <div class="style-card sc-2 fade-up" style="transition-delay:.1s">
+      <img class="sc-img"
+        src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=85&auto=format&fit=crop"
+        alt="Art Deco Interior"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1a1020,#3a2840);z-index:0"></div>
+      <div class="sc-num">02</div>
+      <div class="sov" style="z-index:2">
+        <div class="s-tag">Glamour &amp; Geometry</div>
+        <div class="s-name">Art Deco</div>
+        <div class="s-desc">Bold geometric symmetry, lacquered surfaces, and gold leaf detailing — a celebration of the Roaring Twenties reborn for the modern home.</div>
+      </div>
+    </div>
+
+    <!-- Card 3: Classical Baroque -->
+    <div class="style-card sc-3 fade-up" style="transition-delay:.15s">
+      <img class="sc-img"
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85&auto=format&fit=crop"
+        alt="Classical Interior Design"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,#201808,#5a3c14);z-index:0"></div>
+      <div class="sc-num">03</div>
+      <div class="sov" style="z-index:2">
+        <div class="s-tag">Timeless Heritage</div>
+        <div class="s-name">Classical Baroque</div>
+        <div class="s-desc">Ornate mouldings, rich upholstery, and hand-painted ceilings that honour centuries of European craftsmanship.</div>
+      </div>
+    </div>
+
+    <!-- Card 4: Biophilic -->
+    <div class="style-card sc-4 fade-up" style="transition-delay:.2s">
+      <img class="sc-img"
+        src="https://images.unsplash.com/photo-1585128792020-803d29415281?w=900&q=85&auto=format&fit=crop"
+        alt="Biophilic Interior Design"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,#101810,#284028);z-index:0"></div>
+      <div class="sc-num">04</div>
+      <div class="sov" style="z-index:2">
+        <div class="s-tag">Nature Forward</div>
+        <div class="s-name">Biophilic &amp; Japandi</div>
+        <div class="s-desc">Living walls, natural stone, warm oak and rattan — spaces designed to restore calm and reconnect you with the natural world.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="int-services">
+  <div class="sec-label"><span>What We Offer</span></div>
+  <h2 class="sec-title" style="color:var(--white)">Interior Services</h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,.38);margin-bottom:48px">End-to-end interior solutions — from the first sketch to the final fluffed cushion.</p>
+  <div class="svc-grid">
+    <div class="svc-card fade-up">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">📐</div>
+      <div class="svc-cat">Foundation</div>
+      <div class="svc-title">Space Planning &amp; Layout</div>
+      <div class="svc-desc">Intelligent floor planning that maximises every square foot — flow, function, and feeling in perfect balance.</div>
+      <ul class="svc-list"><li>Site measurement &amp; analysis</li><li>2D &amp; 3D layout planning</li><li>Vastu compliance (optional)</li></ul>
+    </div>
+    <div class="svc-card fade-up" style="transition-delay:.08s">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">🎨</div>
+      <div class="svc-cat">Palette</div>
+      <div class="svc-title">Colour &amp; Material Consultation</div>
+      <div class="svc-desc">Expert colour psychology and material selection tailored to your lifestyle, lighting conditions, and personal taste.</div>
+      <ul class="svc-list"><li>Mood board creation</li><li>Paint, wallpaper &amp; texture selection</li><li>Sample presentation at site</li></ul>
+    </div>
+    <div class="svc-card fade-up" style="transition-delay:.16s">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">🪑</div>
+      <div class="svc-cat">Craftsmanship</div>
+      <div class="svc-title">Bespoke Furniture &amp; Joinery</div>
+      <div class="svc-desc">Custom-designed, master-crafted furniture that fits your space perfectly — no compromises, no off-the-shelf shortcuts.</div>
+      <ul class="svc-list"><li>Custom sofa &amp; seating</li><li>Wardrobes &amp; storage units</li><li>Statement pieces &amp; accents</li></ul>
+    </div>
+    <div class="svc-card fade-up" style="transition-delay:.04s">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">💡</div>
+      <div class="svc-cat">Ambience</div>
+      <div class="svc-title">Lighting Design</div>
+      <div class="svc-desc">Layered lighting architecture — ambient, task, and accent — that sets the perfect mood at every hour of the day.</div>
+      <ul class="svc-list"><li>Lighting layout planning</li><li>Smart &amp; dimmable systems</li><li>Feature pendants &amp; chandeliers</li></ul>
+    </div>
+    <div class="svc-card fade-up" style="transition-delay:.12s">
+      <div class="svc-num">05</div>
+      <div class="svc-icon">🍳</div>
+      <div class="svc-cat">Speciality</div>
+      <div class="svc-title">Modular Kitchen &amp; Bath</div>
+      <div class="svc-desc">Precision-engineered modular kitchens and spa-calibre bathrooms — where practicality meets absolute luxury.</div>
+      <ul class="svc-list"><li>Imported shutter finishes</li><li>Branded hardware (Hafele/Hettich)</li><li>Sanitaryware (Kohler/TOTO)</li></ul>
+    </div>
+    <div class="svc-card fade-up" style="transition-delay:.2s">
+      <div class="svc-num">06</div>
+      <div class="svc-icon">🖼️</div>
+      <div class="svc-cat">Final Touch</div>
+      <div class="svc-title">Art &amp; Object Curation</div>
+      <div class="svc-desc">The difference between a furnished room and a truly finished home — curated art, sculpture, textiles, and living plants.</div>
+      <ul class="svc-list"><li>Art sourcing &amp; framing</li><li>Soft furnishing selection</li><li>Biophilic plant styling</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="proc-sec">
+  <div class="sec-label"><span>How We Work</span></div>
+  <h2 class="sec-title" style="color:var(--white)">The Design Journey</h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,.35);margin-bottom:52px">A clear, collaborative process designed to keep you informed and excited at every stage.</p>
+  <div class="proc-track">
+    <div class="proc-step fade-up">
+      <div class="ps-dot">🤝<div class="ps-num">01</div></div>
+      <div class="ps-title">Discovery &amp; Briefing</div>
+      <div class="ps-desc">In-depth consultation, site measurement, and lifestyle understanding to build a complete design brief.</div>
+    </div>
+    <div class="proc-step fade-up" style="transition-delay:.1s">
+      <div class="ps-dot">✏️<div class="ps-num">02</div></div>
+      <div class="ps-title">Concept Development</div>
+      <div class="ps-desc">Mood boards, style direction, and 2D layout proposal presented within 7 working days.</div>
+    </div>
+    <div class="proc-step fade-up" style="transition-delay:.2s">
+      <div class="ps-dot">🖥️<div class="ps-num">03</div></div>
+      <div class="ps-title">3D Visualisation</div>
+      <div class="ps-desc">Photorealistic renders letting you walk through your future space before a single nail is struck.</div>
+    </div>
+    <div class="proc-step fade-up" style="transition-delay:.3s">
+      <div class="ps-dot">🔨<div class="ps-num">04</div></div>
+      <div class="ps-title">Execution</div>
+      <div class="ps-desc">In-house civil works, carpentry, painting, and installation with weekly progress updates.</div>
+    </div>
+    <div class="proc-step fade-up" style="transition-delay:.4s">
+      <div class="ps-dot">🎁<div class="ps-num">05</div></div>
+      <div class="ps-title">Styling &amp; Handover</div>
+      <div class="ps-desc">Final styling, snag-free walkthrough, and formal handover — your home, perfected.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO ═══ -->
+<section class="portfolio-sec">
+  <div class="sec-label"><span>Selected Works</span></div>
+  <h2 class="sec-title" style="color:var(--white)">Design Portfolio</h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,.35);margin-bottom:40px">A glimpse into spaces we have crafted — each a unique expression of its owner's vision.</p>
+
+  <div class="port-grid">
+
+    <div class="port-tile pg-1 fade-up">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=85&auto=format&fit=crop" alt="Luxury Living Room" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Living Room</div>
+        <div class="p-proj">Celestia Tower — Penthouse</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-2 fade-up" style="transition-delay:.05s">
+      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=85&auto=format&fit=crop" alt="Master Bedroom" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Master Bedroom</div>
+        <div class="p-proj">Green Acres Villa No. 12</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-3 fade-up" style="transition-delay:.1s">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=85&auto=format&fit=crop" alt="Modular Kitchen" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Modular Kitchen</div>
+        <div class="p-proj">Heritage Heights 4BHK</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-4 fade-up" style="transition-delay:.07s">
+      <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=700&q=85&auto=format&fit=crop" alt="Luxury Bathroom" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Luxury Bathroom</div>
+        <div class="p-proj">Presidential Suite — Boutique Hotel</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-5 fade-up" style="transition-delay:.12s">
+      <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=700&q=85&auto=format&fit=crop" alt="Dining Room" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Dining Area</div>
+        <div class="p-proj">Ramayana County Villa</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-6 fade-up" style="transition-delay:.08s">
+      <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=700&q=85&auto=format&fit=crop" alt="Study Room" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Home Study</div>
+        <div class="p-proj">Ayodhya Square — Penthouse</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-7 fade-up" style="transition-delay:.14s">
+      <img src="https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=700&q=85&auto=format&fit=crop" alt="Lounge Bar" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Lounge &amp; Bar</div>
+        <div class="p-proj">Boutique Hotel Level 5</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-8 fade-up" style="transition-delay:.1s">
+      <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=85&auto=format&fit=crop" alt="Executive Office" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Executive Office</div>
+        <div class="p-proj">Corporate Park Floor 18</div>
+      </div>
+    </div>
+
+    <div class="port-tile pg-9 fade-up" style="transition-delay:.16s">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=85&auto=format&fit=crop" alt="Foyer Entry" loading="lazy"/>
+      <div class="port-overlay">
+        <div class="p-room">Foyer &amp; Entry</div>
+        <div class="p-proj">Green Acres Villa No. 7</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ MATERIALS ═══ -->
+<section class="sec" style="background:var(--cream-2)">
+  <div class="sec-label"><span>What We Use</span></div>
+  <h2 class="sec-title">Materials &amp; Partner Brands</h2>
+  <p class="sec-sub">We source only from verified, premium suppliers — every finish as beautiful as it is enduring.</p>
+  <div class="mat-layout">
+    <div class="mat-grid fade-up">
+      <div class="mat-card">
+        <div class="mat-swatch ms1"></div>
+        <div class="mat-name">Italian Marble</div><div class="mat-sub">Statuario · Calacatta</div>
+      </div>
+      <div class="mat-card">
+        <div class="mat-swatch ms2"></div>
+        <div class="mat-name">Imported Tiles</div><div class="mat-sub">Spain · Italy · Portugal</div>
+      </div>
+      <div class="mat-card">
+        <div class="mat-swatch ms3"></div>
+        <div class="mat-name">Solid Teak Wood</div><div class="mat-sub">Myanmar Grade A</div>
+      </div>
+      <div class="mat-card">
+        <div class="mat-swatch ms4"></div>
+        <div class="mat-name">Engineered Stone</div><div class="mat-sub">Silestone · Caesarstone</div>
+      </div>
+      <div class="mat-card">
+        <div class="mat-swatch ms5"></div>
+        <div class="mat-name">Textured Wallcoverings</div><div class="mat-sub">Grasscloth · Silk · Digital</div>
+      </div>
+      <div class="mat-card">
+        <div class="mat-swatch ms6"></div>
+        <div class="mat-name">Exterior Cladding</div><div class="mat-sub">Limestone · Sandstone</div>
+      </div>
+    </div>
+    <div class="brand-list fade-up" style="transition-delay:.15s">
+      <div style="margin-bottom:20px">
+        <div class="sec-label" style="margin-bottom:8px"><span>Preferred Partners</span></div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.7">We work exclusively with brands that meet our uncompromising quality standards.</p>
+      </div>
+      <div class="brand-row"><div class="brand-icon">🚿</div><div><div class="brand-name">Kohler &amp; TOTO</div><div class="brand-cat">Sanitaryware &amp; Bath Fittings</div></div><div class="brand-badge">Preferred</div></div>
+      <div class="brand-row"><div class="brand-icon">💡</div><div><div class="brand-name">Philips Hue &amp; Lutron</div><div class="brand-cat">Smart Lighting Systems</div></div><div class="brand-badge">Preferred</div></div>
+      <div class="brand-row"><div class="brand-icon">🏠</div><div><div class="brand-name">Hafele &amp; Hettich</div><div class="brand-cat">Hardware &amp; Cabinet Fittings</div></div><div class="brand-badge">Preferred</div></div>
+      <div class="brand-row"><div class="brand-icon">🎨</div><div><div class="brand-name">Asian Paints Royale</div><div class="brand-cat">Paints &amp; Texture Finishes</div></div><div class="brand-badge">Preferred</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-banner">
+  <div class="fade-left">
+    <div class="cta-label">Start Your Journey</div>
+    <div class="cta-title">Ready to Design Your <em>Dream Space?</em></div>
+  </div>
+  <div class="cta-btns fade-up" style="transition-delay:.15s">
+    <button class="btn-g" onclick="window.location='index.html#contact'">Book a Consultation</button>
+    <button class="btn-o" onclick="window.location='projects.html'">View All Projects</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="ft-grid">
+    <div class="ft-brand-col">
+      <div><div class="ft-logo"><div class="ft-emblem"></div><h2>Ayodhya Group</h2></div><div class="ft-city">Bengaluru, Karnataka · Est. 2025</div></div>
+      <p class="ft-desc">A bold Bengaluru startup redefining real estate through sharp marketing, artisanal interiors, and precision construction.</p>
+      <div class="ft-socials"><a class="ft-soc">ig</a><a class="ft-soc">in</a><a class="ft-soc">yt</a><a class="ft-soc">fb</a></div>
+    </div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="index.html">Home</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="careers.html">Careers</a></li></ul></div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="interiors.html">Interiors</a></li><li><a href="construction.html">Construction</a></li></ul></div>
+    <div class="ft-col"><h4>Reach Us</h4><ul><li><a href="tel:+919876543210">+91 98765 43210</a></li><li><a href="/cdn-cgi/l/email-protection#6e060b0202012e0f17010a06170f091c011b1e400700"><span class="__cf_email__" data-cfemail="a6cec3cacac9e6c7dfc9c2cedfc7c1d4c9d3d688cfc8">[email&#160;protected]</span></a></li><li><a href="#">Indiranagar, Bengaluru</a></li><li><a href="#">Karnataka – 560 038</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2025 Ayodhya Group. All rights reserved.</div>
+    <div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>obs.observe(el));
+</script>
+<!-- STICKY ICONS -->
+<div class="sticky-icons">
+  <a class="si si-wa" href="https://wa.me/919876543210" target="_blank">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+    <span class="si-lbl">WhatsApp</span>
+  </a>
+  <a class="si si-ph" href="tel:+919876543210">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4A90D9" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.4 2 2 0 0 1 3.9 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <span class="si-lbl">Call Now</span>
+  </a>
+  <a class="si si-em" href="mailto:hello@ayodhyagroup.in">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C97A" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+    <span class="si-lbl">Email Us</span>
+  </a>
+  <a class="si si-ig" href="https://instagram.com/ayodhyagroup" target="_blank">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+    <span class="si-lbl">Instagram</span>
+  </a>
+</div>
+</body>
+</html>

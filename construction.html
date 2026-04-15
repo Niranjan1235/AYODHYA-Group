@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ayodhya Group – Construction</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9A84C;--gold-light:#E8C97A;--cream:#FAF7F2;--cream-2:#F3EDE3;--dark:#0E0D0B;--dark-2:#1A1814;--dark-3:#252220;--muted:#8A8580;--white:#fff}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;width:100%;position:relative}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:80px;background:rgba(14,13,11,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,0.18);transition:height .3s}
+nav.scrolled{height:66px}
+.nav-brand{display:flex;flex-direction:column;gap:1px;text-decoration:none}.logo-line{display:flex;align-items:center;gap:10px}
+.n-emblem{width:32px;height:32px;flex-shrink:0;border:1.5px solid var(--gold);transform:rotate(45deg);display:flex;align-items:center;justify-content:center}
+.n-emblem::after{content:'';width:12px;height:12px;background:var(--gold)}
+.nav-brand h1{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:0.18em;text-transform:uppercase}
+.n-sub{font-size:.54rem;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;padding-left:42px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.72);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links .n-cta{background:var(--gold);color:var(--dark)!important;padding:8px 20px;font-weight:600}.nav-links .n-cta::after{display:none}.nav-links .n-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}.hamburger span{display:block;width:24px;height:1.5px;background:var(--white)}
+.mob-menu{display:none;position:fixed;top:80px;left:0;right:0;background:rgba(14,13,11,.98);padding:24px 5%;z-index:999;border-bottom:1px solid rgba(201,168,76,.15)}
+.mob-menu.open{display:block}.mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-menu a{text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.page-hdr{margin-top:80px;height:380px;position:relative;background:var(--dark-2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.page-hdr::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0,transparent 60px,rgba(201,168,76,.025) 60px,rgba(201,168,76,.025) 61px),repeating-linear-gradient(90deg,transparent 0,transparent 60px,rgba(201,168,76,.025) 60px,rgba(201,168,76,.025) 61px)}
+.page-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,var(--cream))}
+.phc{position:relative;z-index:2;text-align:center}
+.ph-tag{display:inline-block;font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.35);padding:5px 16px;margin-bottom:18px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:300;color:var(--white);line-height:1.1}
+.ph-title em{font-style:italic;color:var(--gold-light)}
+.hdr-div{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.hdr-div span{width:36px;height:1px;background:rgba(201,168,76,.45)}.hdr-div i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block}
+.sec{padding:88px 5%}
+.sec-label{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sec-label span{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.sec-label::before{content:'';display:block;width:26px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:10px}
+.sec-sub{color:var(--muted);font-size:.88rem;font-weight:300;max-width:500px;line-height:1.75;margin-bottom:50px}
+/* STATS */
+.stats-strip{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,168,76,.12);border-bottom:1px solid rgba(201,168,76,.12)}
+.stat{padding:34px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.7rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-l{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.svc-card{background:var(--white);border:1px solid #EDE9E1;padding:32px 28px;position:relative;overflow:hidden;transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);cursor:pointer}
+.svc-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.08)}
+.svc-card::after{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--gold);transition:height .35s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover::after{height:100%}
+.svc-icon{width:52px;height:52px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.svc-cat{font-size:.56rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;line-height:1.2;margin-bottom:10px}
+.svc-desc{font-size:.78rem;color:var(--muted);line-height:1.72;margin-bottom:16px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:7px}
+.svc-tag{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid #DDD8CE;padding:3px 10px;color:var(--muted)}
+/* SITES */
+#sites{background:var(--dark-2);padding:88px 5%}
+.sites-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.site-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+.site-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-5px)}
+.site-top{height:180px;position:relative;display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
+.st-bg1{background:linear-gradient(135deg,#0a1a2e,#1a3a60)}.st-bg2{background:linear-gradient(135deg,#1a2a0e,#3a6020)}.st-bg3{background:linear-gradient(135deg,#2a0e0e,#602020)}.st-bg4{background:linear-gradient(135deg,#1a0e2a,#402860)}
+.site-phase{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--dark);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 12px;font-weight:600;z-index:2}
+.site-workers{position:absolute;top:14px;right:14px;font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:.08em}
+.site-prog-wrap{position:absolute;bottom:0;left:0;right:0;z-index:2}
+.site-prog-bar{height:3px;background:var(--gold);transition:width .5s}
+.site-body{padding:20px 22px 24px}
+.site-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--white);margin-bottom:5px}
+.site-loc{font-size:.74rem;color:rgba(255,255,255,.4);margin-bottom:14px}
+.site-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
+.sm-i{display:flex;flex-direction:column;gap:3px}.sm-l{font-size:.52rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.3)}.sm-v{font-size:.8rem;color:rgba(255,255,255,.7);font-weight:500}
+/* HOW WE BUILD */
+.hwb-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.hwb-steps{display:flex;flex-direction:column;gap:0}
+.hwb-step{display:flex;gap:22px;padding:28px 0;border-bottom:1px solid #EDE9E1;cursor:pointer;transition:background .2s}
+.hwb-step:last-child{border-bottom:none}
+.hwb-step-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:rgba(201,168,76,.22);line-height:1;flex-shrink:0;width:46px;transition:color .3s}
+.hwb-step:hover .hwb-step-num{color:var(--gold)}
+.hwb-step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;margin-bottom:6px;transition:color .3s}
+.hwb-step:hover .hwb-step-title{color:var(--gold-dark)}
+.hwb-step-desc{font-size:.78rem;color:var(--muted);line-height:1.72}
+.hwb-right{position:sticky;top:110px}
+.hwb-feature{background:var(--dark);padding:38px;margin-bottom:16px;border:1px solid rgba(201,168,76,.18)}
+.hwbf-label{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+.hwbf-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:14px}
+.hwbf-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.75}
+.hwb-cert{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.cert-tag{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:7px 12px}
+.cert-icon{font-size:.9rem}.cert-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+/* SAFETY */
+#safety{background:var(--dark-3);padding:88px 5%}
+.safety-layout{display:grid;grid-template-columns:1fr 2fr;gap:64px}
+.safety-score{text-align:center;padding:48px 36px;border:1px solid rgba(201,168,76,.25);background:rgba(255,255,255,.03)}
+.ss-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:var(--gold);line-height:1}
+.ss-label{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:6px}
+.ss-bar{height:4px;background:rgba(255,255,255,.08);margin:22px 0 8px;position:relative}
+.ss-bar-fill{height:100%;background:var(--gold);width:99.8%}
+.ss-sub{font-size:.68rem;color:rgba(255,255,255,.3)}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cert-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:26px 22px;text-align:center;transition:border-color .3s,transform .3s}
+.cert-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-3px)}
+.cc-icon{font-size:2.2rem;margin-bottom:12px}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--white);margin-bottom:5px}
+.cc-desc{font-size:.65rem;color:rgba(255,255,255,.32);line-height:1.6}
+.cc-status{display:inline-block;margin-top:10px;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(201,168,76,.3);color:var(--gold);padding:3px 9px}
+/* CTA */
+.cta-banner{background:var(--dark);padding:72px 5%;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;border-top:1px solid rgba(201,168,76,.15);position:relative;overflow:hidden}
+.cta-banner::before{content:'BUILD';position:absolute;right:2%;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:700;color:rgba(255,255,255,.025);pointer-events:none}
+.cta-label{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:300;color:var(--white);line-height:1.2}
+.cta-title em{font-style:italic;color:var(--gold-light)}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0}
+.btn-g{background:var(--gold);color:var(--dark);font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:13px 30px;font-weight:600;border:none;cursor:pointer;transition:background .2s}
+.btn-g:hover{background:var(--gold-light)}
+.btn-o{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.18);font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:13px 30px;cursor:pointer;transition:all .2s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+.site-footer{background:var(--dark);padding:64px 5% 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ft-brand-col{display:flex;flex-direction:column;gap:15px}
+.ft-logo{display:flex;align-items:center;gap:10px}
+.ft-emblem{width:33px;height:33px;border:1.5px solid var(--gold);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ft-emblem::after{content:'';width:13px;height:13px;background:var(--gold)}
+.ft-logo h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);letter-spacing:.18em;text-transform:uppercase}
+.ft-city{font-size:.54rem;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;padding-left:43px;margin-top:2px}
+.ft-desc{font-size:.77rem;color:rgba(255,255,255,.3);line-height:1.8;max-width:290px}
+.ft-socials{display:flex;gap:8px}
+.ft-soc{width:35px;height:35px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:rgba(255,255,255,.38);text-decoration:none;transition:all .2s;cursor:pointer}
+.ft-soc:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col h4{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col a{font-size:.77rem;color:rgba(255,255,255,.36);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:var(--gold)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 0}
+.ft-copy{font-size:.63rem;color:rgba(255,255,255,.2)}.ft-legal{display:flex;gap:18px}.ft-legal a{font-size:.6rem;color:rgba(255,255,255,.2);text-decoration:none}.ft-legal a:hover{color:var(--gold)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.fade-up.in{opacity:1;transform:translateY(0)}
+.fade-left{opacity:0;transform:translateX(-26px);transition:opacity .7s ease,transform .7s ease}.fade-left.in{opacity:1;transform:translateX(0)}
+.fade-right{opacity:0;transform:translateX(26px);transition:opacity .7s ease,transform .7s ease}.fade-right.in{opacity:1;transform:translateX(0)}
+@media(max-width:900px){.stats-strip{grid-template-columns:repeat(2,1fr)}.hwb-layout{grid-template-columns:1fr}.hwb-right{position:static}.safety-layout{grid-template-columns:1fr}.certs-grid{grid-template-columns:repeat(2,1fr)}.ft-grid{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:680px){.nav-links{display:none}.hamburger{display:flex}.svc-grid,.sites-grid{grid-template-columns:1fr}.certs-grid{grid-template-columns:1fr}.cta-banner{flex-direction:column}.ft-grid{grid-template-columns:1fr}.ft-bottom{flex-direction:column;text-align:center}}
+
+.stat-n { font-size: 1.7rem; }
+  .wwd-tab { padding: 8px 10px; font-size: 0.56rem; }
+  .mat-grid { grid-template-columns: 1fr !important; }
+  .certs-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ──────────────────────────────────────
+   UNIVERSAL OVERFLOW CONTAINMENT
+────────────────────────────────────── */
+html { overflow-x: hidden; width: 100%; }
+body { overflow-x: hidden; width: 100%; position: relative; }
+section, header, footer, nav, div { max-width: 100%; }
+img, svg, video { max-width: 100%; }
+
+/* ──────────────────────────────────────
+   MOBILE RESPONSIVE (≤768px)
+────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* -- NAV -- */
+  nav { padding: 0 4% !important; height: 64px !important; }
+  nav.scrolled { height: 58px !important; }
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+  .mob-menu { top: 64px !important; padding: 20px 4% !important; }
+  .nav-brand h1 { font-size: 1.05rem !important; letter-spacing: 0.1em !important; }
+  .n-sub { font-size: 0.46rem !important; }
+  .n-emblem { width: 26px !important; height: 26px !important; }
+
+  /* -- HERO -- */
+  #hero {
+    height: auto !important;
+    min-height: 100svh !important;
+    overflow: hidden !important;
+    align-items: flex-start !important;
+    padding-top: 90px !important;
+    padding-bottom: 80px !important;
+  }
+  .h-rpanel { display: none !important; }
+  .h-ring1, .h-ring2, .h-ring3 { display: none !important; }
+  .h-cards { display: none !important; }
+  .h-scroll { display: none !important; }
+  .h-year { font-size: 4rem !important; right: 10px !important; bottom: 10px !important; }
+  .h-glow { width: 200px !important; height: 200px !important; left: 50% !important; }
+  .h-content { padding: 0 4% !important; max-width: 100% !important; width: 100% !important; }
+  .h-eyebrow { margin-bottom: 20px !important; }
+  .h-ey-text { font-size: 0.5rem !important; letter-spacing: 0.25em !important; }
+  .h-title { font-size: clamp(2.2rem, 9vw, 3rem) !important; }
+  .thin { display: block !important; }
+  .accent { display: block !important; }
+  .h-desc { font-size: 0.82rem !important; max-width: 100% !important; margin-bottom: 30px !important; line-height: 1.7 !important; }
+  .h-btns { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; margin-bottom: 28px !important; }
+  .hbp, .hbo { width: 100% !important; text-align: center !important; padding: 14px 16px !important; font-size: 0.62rem !important; }
+  .h-badges { flex-wrap: wrap !important; gap: 7px !important; }
+  .h-badge { font-size: 0.53rem !important; padding: 5px 10px !important; }
+  .h-fade { height: 80px !important; }
+
+  /* -- STATS -- */
+  .stats-strip { grid-template-columns: repeat(2,1fr) !important; }
+  .stat { padding: 20px 10px !important; }
+  .stat-n { font-size: 1.9rem !important; }
+  .stat-l { font-size: 0.54rem !important; }
+
+  /* -- SECTION GLOBAL -- */
+  #whatwedo, #founders, #reviews, #contact-sec,
+  .sec, section { padding-left: 4% !important; padding-right: 4% !important; }
+  .sec-title { font-size: clamp(1.7rem, 6vw, 2.4rem) !important; }
+  .sec-sub { font-size: 0.82rem !important; }
+  .sec-label { margin-bottom: 10px !important; }
+
+  /* -- WHAT WE DO -- */
+  #whatwedo { padding-top: 56px !important; padding-bottom: 56px !important; }
+  .wwd-tabs { flex-wrap: wrap !important; gap: 6px !important; justify-content: center !important; }
+  .wwd-tab { padding: 9px 13px !important; font-size: 0.58rem !important; }
+  .wwd-panel.active { display: flex !important; flex-direction: column !important; }
+  .wwd-visual { min-height: 220px !important; }
+  .wwd-vis-num { font-size: 4rem !important; }
+  .wwd-info { padding: 28px 4% !important; }
+  .wwd-title { font-size: 1.35rem !important; }
+  .wwd-desc { font-size: 0.82rem !important; }
+  .wwd-feats { grid-template-columns: 1fr 1fr !important; gap: 7px !important; }
+  .wwd-feat { font-size: 0.6rem !important; padding: 7px 10px !important; }
+
+  /* -- FOUNDERS -- */
+  #founders { padding-top: 60px !important; padding-bottom: 60px !important; }
+  .founders-top { grid-template-columns: 1fr !important; gap: 20px !important; margin-bottom: 36px !important; }
+  .founders-right p { font-size: 0.82rem !important; }
+  .founders-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .fc { overflow: visible !important; }
+  .fc-circle { width: 120px !important; height: 120px !important; }
+  .fc-circle-wrap { margin-bottom: -36px !important; }
+  .fc-portrait { padding: 30px 20px 0 !important; }
+  .fc-body { padding: 46px 20px 26px !important; }
+  .fc-name { font-size: 1.6rem !important; }
+  .fc-bio { font-size: 0.78rem !important; text-align: left !important; }
+  .fc-tags { justify-content: flex-start !important; }
+  .fc-links { justify-content: flex-start !important; }
+
+  /* -- REVIEWS -- */
+  #reviews { padding: 56px 4% !important; }
+  .rev-top { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+  .reviews-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .rv-card { padding: 24px 18px !important; }
+  .rv-text { font-size: 0.95rem !important; }
+
+  /* -- MAP / CONTACT -- */
+  #contact-sec { padding: 56px 4% !important; }
+  .contact-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .map-wrap iframe { height: 260px !important; }
+  .c-card { padding: 20px 16px !important; }
+
+  /* -- PAGE HEADERS (projects/interiors/construction/careers) -- */
+  .page-hdr { height: 240px !important; margin-top: 64px !important; }
+  .ph-title { font-size: clamp(1.7rem, 7vw, 2.6rem) !important; padding: 0 4% !important; text-align: center !important; }
+  .ph-sub { font-size: 0.7rem !important; padding: 0 4% !important; text-align: center !important; }
+  .ph-eyebrow { text-align: center !important; }
+
+  /* -- PROJECTS -- */
+  .ongoing-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .comp-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .proj-card { padding: 22px 18px !important; }
+  .prog-bar-wrap { margin-bottom: 14px !important; }
+
+  /* -- INTERIORS -- */
+  .styles-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .style-card { aspect-ratio: 4/3 !important; }
+  .style-card.wide { grid-column: span 1 !important; aspect-ratio: 4/3 !important; }
+  .svc-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .proc-track { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .proc-track::before { display: none !important; }
+  .proc-step { flex-direction: row !important; gap: 14px !important; align-items: flex-start !important; }
+  .port-masonry { columns: 1 !important; gap: 12px !important; }
+  .mat-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .mat-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .brand-row { flex-wrap: wrap !important; gap: 10px !important; }
+  .cta-banner { flex-direction: column !important; gap: 20px !important; padding: 40px 4% !important; text-align: center !important; }
+  .cta-btns { flex-direction: column !important; width: 100% !important; }
+  .btn-g, .btn-o { width: 100% !important; text-align: center !important; padding: 13px 16px !important; font-size: 0.62rem !important; }
+
+  /* -- CONSTRUCTION -- */
+  .con-svc-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .sites-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .hwb-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .hwb-right { position: static !important; top: auto !important; }
+  .hwb-steps { gap: 20px !important; }
+  .safety-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .certs-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+  .cert-card { padding: 18px 14px !important; }
+
+  /* -- CAREERS -- */
+  #careers-hero { padding: 100px 4% 56px !important; height: auto !important; }
+  .ch-title { font-size: clamp(2rem, 9vw, 2.8rem) !important; }
+  .ch-desc { font-size: 0.82rem !important; }
+  .ch-right { display: none !important; }
+  .ch-btns { flex-direction: column !important; gap: 10px !important; }
+  .ch-btn { width: 100% !important; text-align: center !important; }
+  .values-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .jobs-filter { flex-wrap: wrap !important; gap: 6px !important; }
+  .job-filter-btn { padding: 7px 12px !important; font-size: 0.57rem !important; }
+  .job-card { flex-direction: column !important; gap: 12px !important; padding: 20px 16px !important; }
+  .job-right { flex-direction: row !important; align-items: center !important; gap: 10px !important; }
+  .perks-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .perk-card { padding: 18px 14px !important; }
+  .culture-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .culture-visual { grid-template-columns: 1fr 1fr !important; }
+  .apply-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .apply-form { padding: 28px 18px !important; }
+  .form-row { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .form-submit { width: 100% !important; }
+
+  /* -- FOOTER -- */
+  .site-footer { padding: 48px 4% 0 !important; }
+  .ft-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ft-desc { max-width: 100% !important; }
+  .ft-bottom { flex-direction: column !important; text-align: center !important; gap: 10px !important; padding: 16px 0 !important; }
+  .ft-legal { justify-content: center !important; }
+}
+
+@media (max-width: 420px) {
+  .h-title { font-size: 2rem !important; }
+  .hbp, .hbo { font-size: 0.58rem !important; padding: 12px 14px !important; }
+  .wwd-feats { grid-template-columns: 1fr !important; }
+  .stat-n { font-size: 1.6rem !important; }
+  .mat-grid { grid-template-columns: 1fr !important; }
+  .certs-grid { grid-template-columns: 1fr !important; }
+  .perks-grid { grid-template-columns: 1fr !important; }
+  .culture-visual { grid-template-columns: 1fr !important; }
+}
+
+/* ── STICKY ICONS ── */
+.sticky-icons{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:3px}
+.si{display:flex;align-items:center;background:#252220;border:1px solid rgba(201,168,76,.22);border-right:none;cursor:pointer;overflow:hidden;position:relative;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s}
+.si:hover{transform:translateX(-5px);border-color:rgba(201,168,76,.6)}
+.si::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#C9A84C;transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.si:hover::before{transform:scaleY(1)}
+.si-icon{width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.si-icon svg{width:19px;height:19px}
+.si-ig .si-icon{background:linear-gradient(135deg,#f09433,#bc1888)}
+.si-lbl{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .35s cubic-bezier(.16,1,.3,1),padding .3s,opacity .25s;opacity:0;font-weight:500;font-family:'Jost',sans-serif}
+.si:hover .si-lbl{max-width:100px;padding-right:15px;opacity:1}
+@media(max-width:768px){.sticky-icons{display:none}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="nav-brand" href="index.html"><div class="logo-line"><div class="n-emblem"></div><h1>Ayodhya Group</h1></div><span class="n-sub">Bengaluru · Est. 2025</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li>
+    <li><a href="interiors.html">Interiors</a></li><li><a href="construction.html" class="active">Construction</a></li>
+    <li><a href="careers.html">Careers</a></li><li><a href="index.html#contact" class="n-cta">Enquire</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.querySelector('.mob-menu').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu"><ul><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="interiors.html">Interiors</a></li><li><a href="construction.html">Construction</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#contact">Enquire</a></li></ul></div>
+
+<div class="page-hdr">
+  <div class="phc">
+    <div class="ph-tag">Construction Division</div>
+    <h1 class="ph-title">Built with Precision, <em>Engineered to Last</em></h1>
+    <div class="hdr-div"><span></span><i></i><span></span></div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat fade-up"><div class="stat-n">100%</div><div class="stat-l">On-Time Commitment</div></div>
+  <div class="stat fade-up" style="transition-delay:.1s"><div class="stat-n">IS</div><div class="stat-l">Code Compliant</div></div>
+  <div class="stat fade-up" style="transition-delay:.2s"><div class="stat-n">Zero</div><div class="stat-l">Safety Compromises</div></div>
+  <div class="stat fade-up" style="transition-delay:.3s"><div class="stat-n">BLR</div><div class="stat-l">Bengaluru Operations</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec">
+  <div class="sec-label"><span>What We Build</span></div>
+  <h2 class="sec-title">Construction Services</h2>
+  <p class="sec-sub">From luxury high-rises to integrated townships — comprehensive construction capabilities under one roof.</p>
+  <div class="svc-grid">
+    <div class="svc-card fade-up"><div class="svc-icon">🏙️</div><div class="svc-cat">Vertical Construction</div><div class="svc-title">High-Rise Residential</div><div class="svc-desc">Premium residential towers engineered for Bengaluru's soil conditions, seismic zones, and microclimate — built to outlast generations.</div><div class="svc-tags"><span class="svc-tag">Structural Steel</span><span class="svc-tag">RCC Frame</span><span class="svc-tag">IS Code</span></div></div>
+    <div class="svc-card fade-up" style="transition-delay:.08s"><div class="svc-icon">🏢</div><div class="svc-cat">Commercial</div><div class="svc-title">Commercial &amp; Grade-A Offices</div><div class="svc-desc">Intelligent, energy-efficient commercial buildings designed to meet the standards of global corporations operating in Bengaluru.</div><div class="svc-tags"><span class="svc-tag">LEED Ready</span><span class="svc-tag">Grade A</span><span class="svc-tag">Smart Systems</span></div></div>
+    <div class="svc-card fade-up" style="transition-delay:.16s"><div class="svc-icon">🏘️</div><div class="svc-cat">Horizontal Development</div><div class="svc-title">Integrated Townships</div><div class="svc-desc">Master-planned communities with roads, utilities, parks, and amenities built simultaneously — no phased compromises.</div><div class="svc-tags"><span class="svc-tag">Master Planning</span><span class="svc-tag">Infrastructure</span><span class="svc-tag">RERA</span></div></div>
+    <div class="svc-card fade-up" style="transition-delay:.08s"><div class="svc-icon">⚡</div><div class="svc-cat">Systems</div><div class="svc-title">MEP &amp; Smart Systems</div><div class="svc-desc">In-house mechanical, electrical, and plumbing teams — fully coordinated with BIM to eliminate rework and ensure seamless execution.</div><div class="svc-tags"><span class="svc-tag">BIM Coordination</span><span class="svc-tag">HVAC</span><span class="svc-tag">Smart Grid</span></div></div>
+    <div class="svc-card fade-up" style="transition-delay:.16s"><div class="svc-icon">🌿</div><div class="svc-cat">Sustainable</div><div class="svc-title">Green Building</div><div class="svc-desc">IGBC and LEED-aligned construction practices reducing waste, maximising natural ventilation, and lowering the building's lifetime carbon footprint.</div><div class="svc-tags"><span class="svc-tag">IGBC</span><span class="svc-tag">Rainwater Harvest</span><span class="svc-tag">Solar Ready</span></div></div>
+    <div class="svc-card fade-up" style="transition-delay:.24s"><div class="svc-icon">🏨</div><div class="svc-cat">Specialised</div><div class="svc-title">Hospitality &amp; Retail</div><div class="svc-desc">Hotels, resorts, and retail complexes that require meticulous attention to guest experience, structural detailing, and phased handover.</div><div class="svc-tags"><span class="svc-tag">Fire NOC</span><span class="svc-tag">Facade Glazing</span><span class="svc-tag">Theme Construction</span></div></div>
+  </div>
+</section>
+
+<!-- ACTIVE SITES -->
+<section id="sites">
+  <div class="sec-label" style="--gold:#E8C97A"><span style="color:var(--gold-light,#E8C97A)">Live Sites</span></div>
+  <h2 class="sec-title" style="color:var(--white)">Active Construction Sites</h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,.4)">Real-time progress across our Bengaluru construction sites — every milestone tracked and reported.</p>
+  <div class="sites-grid">
+    <div class="site-card fade-up"><div class="site-top st-bg1"><span style="position:relative;z-index:2">🏗️</span><div class="site-phase">Superstructure</div><div class="site-workers">👷 220 Workers</div><div class="site-prog-wrap"><div class="site-prog-bar" style="width:62%"></div></div></div><div class="site-body"><div class="site-name">Celestia Tower</div><div class="site-loc">Whitefield, Bengaluru</div><div class="site-meta"><div class="sm-i"><span class="sm-l">Floors</span><span class="sm-v">G+32</span></div><div class="sm-i"><span class="sm-l">Progress</span><span class="sm-v">62%</span></div><div class="sm-i"><span class="sm-l">ETA</span><span class="sm-v">Dec '26</span></div></div></div></div>
+    <div class="site-card fade-up" style="transition-delay:.1s"><div class="site-top st-bg2"><span style="position:relative;z-index:2">🏢</span><div class="site-phase">Structural Work</div><div class="site-workers">👷 145 Workers</div><div class="site-prog-wrap"><div class="site-prog-bar" style="width:40%"></div></div></div><div class="site-body"><div class="site-name">Ayodhya Business Hub</div><div class="site-loc">Koramangala, Bengaluru</div><div class="site-meta"><div class="sm-i"><span class="sm-l">Floors</span><span class="sm-v">G+18</span></div><div class="sm-i"><span class="sm-l">Progress</span><span class="sm-v">40%</span></div><div class="sm-i"><span class="sm-l">ETA</span><span class="sm-v">Jun '26</span></div></div></div></div>
+    <div class="site-card fade-up" style="transition-delay:.2s"><div class="site-top st-bg3"><span style="position:relative;z-index:2">🏡</span><div class="site-phase">Foundation</div><div class="site-workers">👷 90 Workers</div><div class="site-prog-wrap"><div class="site-prog-bar" style="width:24%"></div></div></div><div class="site-body"><div class="site-name">Green Acres Villas</div><div class="site-loc">Sarjapur Road, Bengaluru</div><div class="site-meta"><div class="sm-i"><span class="sm-l">Units</span><span class="sm-v">64 Villas</span></div><div class="sm-i"><span class="sm-l">Progress</span><span class="sm-v">24%</span></div><div class="sm-i"><span class="sm-l">ETA</span><span class="sm-v">Mar '27</span></div></div></div></div>
+    <div class="site-card fade-up" style="transition-delay:.3s"><div class="site-top st-bg4"><span style="position:relative;z-index:2">🏬</span><div class="site-phase">MEP &amp; Finishes</div><div class="site-workers">👷 180 Workers</div><div class="site-prog-wrap"><div class="site-prog-bar" style="width:85%"></div></div></div><div class="site-body"><div class="site-name">Ayodhya Square</div><div class="site-loc">Indiranagar, Bengaluru</div><div class="site-meta"><div class="sm-i"><span class="sm-l">Floors</span><span class="sm-v">G+24</span></div><div class="sm-i"><span class="sm-l">Progress</span><span class="sm-v">85%</span></div><div class="sm-i"><span class="sm-l">ETA</span><span class="sm-v">Sep '25</span></div></div></div></div>
+  </div>
+</section>
+
+<!-- HOW WE BUILD -->
+<section class="sec" style="background:var(--cream-2)">
+  <div class="sec-label"><span>Methodology</span></div>
+  <h2 class="sec-title">How We Build</h2>
+  <div class="hwb-layout">
+    <div class="hwb-steps fade-left">
+      <div class="hwb-step"><div class="hwb-step-num">01</div><div><div class="hwb-step-title">Design Validation &amp; BIM</div><div class="hwb-step-desc">Before a single brick is laid, we validate structural, architectural, and MEP designs in 3D using Building Information Modelling — eliminating conflicts before they cost time or money.</div></div></div>
+      <div class="hwb-step"><div class="hwb-step-num">02</div><div><div class="hwb-step-title">Foundation &amp; Piling</div><div class="hwb-step-desc">Bengaluru's varied geology demands a scientific approach — soil testing, pile load tests, and raft design calibrated to the specific site, not copied from a generic template.</div></div></div>
+      <div class="hwb-step"><div class="hwb-step-num">03</div><div><div class="hwb-step-title">Superstructure</div><div class="hwb-step-desc">RCC frame construction with high-grade cement and TMT steel, poured to IS 456 standards and tested via cube testing every slab cycle.</div></div></div>
+      <div class="hwb-step"><div class="hwb-step-num">04</div><div><div class="hwb-step-title">Façade &amp; Envelope</div><div class="hwb-step-desc">Brickwork, glazing, external finishes, and waterproofing applied with a 15-year warranty — because a building's skin is as important as its skeleton.</div></div></div>
+      <div class="hwb-step"><div class="hwb-step-num">05</div><div><div class="hwb-step-title">MEP Coordination</div><div class="hwb-step-desc">All mechanical, electrical, and plumbing works executed by our in-house certified teams — fully tested and BESCOM/BWSSB approved before handover.</div></div></div>
+      <div class="hwb-step"><div class="hwb-step-num">06</div><div><div class="hwb-step-title">Snag-Free Handover</div><div class="hwb-step-desc">A 240-point snagging checklist and independent QC audit ensures every unit is handed over truly defect-free — not just 'functionally complete'.</div></div></div>
+    </div>
+    <div class="hwb-right fade-right">
+      <div class="hwb-feature">
+        <div class="hwbf-label">Our Standard</div>
+        <div class="hwbf-title">IS Code &amp; NBC 2016 Compliance — Non-Negotiable</div>
+        <div class="hwbf-desc">Every project meets or exceeds Indian Standards (IS) code requirements and the National Building Code 2016. We build not to the minimum required standard, but to the highest achievable one.</div>
+      </div>
+      <div class="hwb-feature">
+        <div class="hwbf-label">Certifications</div>
+        <div class="hwbf-title">Certified, Audited &amp; Verified</div>
+        <div class="hwbf-desc">Our quality management, safety systems, and green building practices are independently certified — giving clients and investors complete confidence.</div>
+        <div class="hwb-cert">
+          <div class="cert-tag"><span class="cert-icon">🏅</span><span class="cert-label">ISO 9001</span></div>
+          <div class="cert-tag"><span class="cert-icon">🛡️</span><span class="cert-label">ISO 45001</span></div>
+          <div class="cert-tag"><span class="cert-icon">🌿</span><span class="cert-label">IGBC</span></div>
+          <div class="cert-tag"><span class="cert-icon">📋</span><span class="cert-label">RERA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section id="safety">
+  <div class="safety-layout">
+    <div class="fade-up">
+      <div class="sec-label" style="--gold:#E8C97A"><span style="color:var(--gold-light,#E8C97A)">Safety First</span></div>
+      <h2 class="sec-title" style="color:var(--white);margin-bottom:30px">Safety &amp; Quality Standards</h2>
+      <div class="safety-score fade-up">
+        <div class="ss-num">99.8%</div>
+        <div class="ss-label">Safety Score</div>
+        <div class="ss-bar"><div class="ss-bar-fill"></div></div>
+        <div class="ss-sub">Zero fatal incidents since inception · OHSAS compliance</div>
+      </div>
+    </div>
+    <div class="fade-right">
+      <div class="sec-label" style="--gold:#E8C97A"><span style="color:var(--gold-light,#E8C97A)">Accreditations</span></div>
+      <h2 class="sec-title" style="color:var(--white);margin-bottom:30px">Our Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-card fade-up"><div class="cc-icon">🏅</div><div class="cc-name">ISO 9001:2015</div><div class="cc-desc">Quality Management Systems — covering all construction processes and client delivery.</div><div class="cc-status">Certified</div></div>
+        <div class="cert-card fade-up" style="transition-delay:.08s"><div class="cc-icon">🛡️</div><div class="cc-name">ISO 45001</div><div class="cc-desc">Occupational Health &amp; Safety — protecting every worker on every site, every day.</div><div class="cc-status">Certified</div></div>
+        <div class="cert-card fade-up" style="transition-delay:.16s"><div class="cc-icon">🌿</div><div class="cc-name">IGBC Member</div><div class="cc-desc">Indian Green Building Council — committed to sustainable construction practices.</div><div class="cc-status">Member</div></div>
+        <div class="cert-card fade-up" style="transition-delay:.08s"><div class="cc-icon">📋</div><div class="cc-name">RERA Registered</div><div class="cc-desc">Karnataka RERA compliant — full transparency and legal compliance for all buyers.</div><div class="cc-status">Registered</div></div>
+        <div class="cert-card fade-up" style="transition-delay:.16s"><div class="cc-icon">🔬</div><div class="cc-name">NABL Lab Tests</div><div class="cc-desc">All materials tested in NABL-accredited labs — soil, concrete, steel, waterproofing.</div><div class="cc-status">Compliant</div></div>
+        <div class="cert-card fade-up" style="transition-delay:.24s"><div class="cc-icon">🏛️</div><div class="cc-name">BBMP Approved</div><div class="cc-desc">All Bengaluru projects hold valid BBMP / BDA sanctioned building plans.</div><div class="cc-status">Approved</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="fade-up"><div class="cta-label">Start Building</div><div class="cta-title">Ready to Build Your <em>Next Project?</em></div></div>
+  <div class="cta-btns fade-up" style="transition-delay:.15s"><button class="btn-g">Request a Quote</button><button class="btn-o">View Projects</button></div>
+</div>
+
+<footer class="site-footer">
+  <div class="ft-grid">
+    <div class="ft-brand-col"><div><div class="ft-logo"><div class="ft-emblem"></div><h2>Ayodhya Group</h2></div><div class="ft-city">Bengaluru, Karnataka · Est. 2025</div></div><p class="ft-desc">A bold Bengaluru startup redefining real estate through sharp marketing, artisanal interiors, and precision construction.</p><div class="ft-socials"><a class="ft-soc">ig</a><a class="ft-soc">in</a><a class="ft-soc">yt</a><a class="ft-soc">fb</a></div></div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="index.html">Home</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="careers.html">Careers</a></li></ul></div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="interiors.html">Interiors</a></li><li><a href="construction.html">Construction</a></li></ul></div>
+    <div class="ft-col"><h4>Reach Us</h4><ul><li><a href="#">+91 98765 43210</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="9df5f8f1f1f2ddfce4f2f9f5e4fcfaeff2e8edb3f4f3">[email&#160;protected]</span></a></li><li><a href="#">Indiranagar, Bengaluru</a></li></ul></div>
+  </div>
+  <div class="ft-bottom"><div class="ft-copy">© 2025 Ayodhya Group. All rights reserved.</div><div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>obs.observe(el));
+</script>
+<!-- STICKY ICONS -->
+<div class="sticky-icons">
+  <a class="si si-wa" href="https://wa.me/919876543210" target="_blank">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+    <span class="si-lbl">WhatsApp</span>
+  </a>
+  <a class="si si-ph" href="tel:+919876543210">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4A90D9" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.4 2 2 0 0 1 3.9 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <span class="si-lbl">Call Now</span>
+  </a>
+  <a class="si si-em" href="mailto:hello@ayodhyagroup.in">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C97A" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+    <span class="si-lbl">Email Us</span>
+  </a>
+  <a class="si si-ig" href="https://instagram.com/ayodhyagroup" target="_blank">
+    <div class="si-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+    <span class="si-lbl">Instagram</span>
+  </a>
+</div>
+</body>
+</html>
